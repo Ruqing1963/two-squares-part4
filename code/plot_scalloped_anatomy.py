@@ -75,8 +75,8 @@ for y, col, lab, mk in series:
     b, c = fit(y)
     bx.plot(L, y, color=col, lw=0, marker=mk, ms=4.5, label=f"{lab}: $b={b:+.4f}$")
     bx.plot(Lf, b * Lf + c, color=col, lw=1.1, ls="--")
-bx.text(L.max() - 0.1, 1.05, r"proved: $b=0.38301$ (Lemma 6.10 of Part II)" + "\n" + r"$b=2\kappa/\pi=0.02879$ (Mellin, Section 2)",
-        fontsize=7.5, color=MUTED, ha="right", va="bottom")
+bx.text(L.max() - 0.1, 1.05, r"proved (Theorem 2.4): $b=0.38301,\ 0.05687,\ 0.04073,$" + "\n"
+        + r"$0.02879,\ 0.00143$; total $B=0.48204$", fontsize=7.5, color=MUTED, ha="right", va="bottom")
 bx.set_xlabel(r"$\log p$")
 bx.set_ylabel(r"contribution to $\Vert G_{1,p}\Vert^2-\frac{1}{\pi}(\log p)^2$")
 bx.set_title(r"(b) the anatomy of $B\approx0.48$, $p$ from $101$ to $400009$ (fits over $p\geqq10^4$)", fontsize=10)

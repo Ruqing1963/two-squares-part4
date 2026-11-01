@@ -11,13 +11,13 @@ L unit periods of the scallop gives EXACTLY
 with w_d = 1/Q for the Atkin-Lehner cusps (b = a_G, the coefficients of G_{1,p}; d = delta, 4 delta) and
 w_d = (Q/4)(delta/p)^2 for the cusps of denominator 2 delta (b = c = T^odd - M^odd, Q = 4p/delta); here
 delta in {1, p}, so the six classes have the widths 4p, p, 4p (odd) and 4, 1, 4 (odd).  The j = 0 terms with Psi_0
-replaced by e^{-c} are the height-1 sums Lambda_1 of Part II, Section 6.7 (Lemma 6.9 and (34)); Psi_0(c) - e^{-c}
+replaced by e^{-c} are the height-1 sums Lambda_1 of Part II, Section 6.7 (Lemmas 6.2, 6.11 and (34)); Psi_0(c) - e^{-c}
 integrates over the region between the arcs and the line y = 1; the j != 0 terms are the correlations
 a(k) a(k + jQ) that the arcs let through (they vanish for a flat bottom).  Only j <= 7 matters (c >= 2 pi j).
 
 ANATOMY.  ||G_{1,p}||^2 - (1/pi)(log p)^2 is split into
    C1  = (1/4pi)(S(p/4pi) + S(p/pi)),  S(Y) = sum r(k)^2/k e^{-k/Y}: the free part of the two main cusps
-         (widths p, 4p); Lemma 6.10: 2(log Y)^2 + c_1 log Y + c_2, so C1 = (1/pi)(log p)^2 + 0.38312 log p + O(1);
+         (widths p, 4p); Part II, Lemma 6.3: 2(log Y)^2 + c_1 log Y + c_2, so C1 = (1/pi)(log p)^2 + 0.38301 log p + O(1);
    C2  = Lambda_1(main cusps) - C1: the correction r(k)^2 -> |a(k)|^2 = (r(k) - M(k) + T'(k))^2 (Siegel main term
          for k < p, the terms T' with beta >= 1 for k >= p);
    C3  = Lambda_1 of the other four cusps: the narrow Atkin-Lehner cusps (widths 4, 1) and the two cusps of
@@ -99,7 +99,7 @@ def S_free(r, Y, K):
     return float(np.sum(r[1:K + 1] ** 2 / k * np.exp(-k / Y)))
 
 
-C1_LEMMA = 9.758   # c_1 of Part II, Lemma 6.10
+C1_LEMMA = 9.758   # c_1 of Part II, Lemma 6.3
 C2_LEMMA = 6.12
 
 

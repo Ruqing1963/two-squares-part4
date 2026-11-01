@@ -1,0 +1,28 @@
+E_1(pi) = 0.0109063, E_1(2 pi) = 0.0002604, E_1(4 pi) = 2.583e-07
+b_1 (free part, Part II Lemma 6.3)          = +0.383005
+b_2 = 2 kappa/pi (arcs on the free part)    = +0.028794
+b_3 (tail, main cusps, height 1)            = +0.056874
+b_4 (arcs on the tail)                      = +0.011936   [b_2 + b_4 = +0.040730]
+b_5 (tail, cusp of denominator 2, width 4p) = +0.001326
+b_5' (its arcs)                             = +0.000567
+b_6 (correlations, main cusps)              = -0.000460
+b_6' (correlations, cusp of denominator 2)  = +0.000000
+B = sum                                     = +0.482043
+
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) of the exact anatomy against the closed forms:
+                   C2: predicted +0.05687; local slopes +0.05602 +0.05596 +0.05697 +0.05677 +0.05676  (p = 10007 ... 400009)
+            C3 odd 4p: predicted +0.00133; local slopes +0.00146 +0.00146 +0.00131 +0.00134 +0.00134  (p = 10007 ... 400009)
+          C4 arc main: predicted +0.04073; local slopes +0.04076 +0.04075 +0.04073 +0.04074 +0.04073  (p = 10007 ... 400009)
+     C4 arc free part: predicted +0.02879; local slopes +0.02880 +0.02880 +0.02880 +0.02880 +0.02880  (p = 10007 ... 400009)
+         C4 arc other: predicted +0.00057; local slopes +0.00058 +0.00058 +0.00057 +0.00056 +0.00058  (p = 10007 ... 400009)
+          C4 off main: predicted -0.00046; local slopes -0.00046 -0.00046 -0.00046 -0.00046 -0.00046  (p = 10007 ... 400009)
+         C4 off other: predicted +0.00000; local slopes +0.00000 +0.00000 +0.00000 +0.00000 +0.00000  (p = 10007 ... 400009)
+     exact - log^2/pi: predicted +0.48204; local slopes +0.48119 +0.48121 +0.48204 +0.48188 +0.48188
+
+C_2 at the main cusps = diagonal tail + rest; 'rest - rest(prev)' must be O(1/p), not O(log):
+       p  C2 (height 1)   diagonal       rest |  C2 (arcs)  diag arcs       rest
+   10007       -0.58241    0.58548   -1.16789 |    0.06829    0.12594   -0.05765
+   40009       -0.50482    0.66430   -1.16912 |    0.08486    0.14248   -0.05762
+  100003       -0.45263    0.71640   -1.16903 |    0.09579    0.15342   -0.05762
+  200003       -0.41328    0.75583   -1.16911 |    0.10407    0.16169   -0.05762
+  400009       -0.37394    0.79525   -1.16919 |    0.11235    0.16996   -0.05762

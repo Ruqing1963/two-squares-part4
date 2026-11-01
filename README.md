@@ -14,10 +14,14 @@ DOI 10.5281/zenodo.23826860). The repository holds
 1. **The scalloped Parseval formula (Section 2).** Waibel's fundamental domain has the lower boundary y = √(1 − {x}²), and
    Parseval over it gives the Petersson norm *exactly* as a double series over the cusps with correlation terms
    a(k) a(k + jQ) (Proposition 2.1). Evaluated to p = 400009 for G_{1,p}, it reproduces the Rankin–Selberg values where
-   they have converged (7.42858 vs 7.42871 at p = 101) and gives ‖G_{1,p}‖² = (1/π)(log p)² + B log p + O(1) with B = 0.48:
-   0.383 from the free part of the two main cusps (Part II, Lemma 6.10), 0.0288 = 2κ/π from the arcs on the free part
-   (Proposition 2.2, Mellin inversion, κ = ∫ log(1 − x²)^{−1/2} dx over [−1/2, 1/2] = 0.045231), 0.057 + 0.012 from the
-   Siegel and tail corrections, 0.002 from the other cusps; the correlation terms give −0.0005.
+   they have converged (7.42858 vs 7.42871 at p = 101) and gives ‖G_{1,p}‖² = (1/π)(log p)² + B log p + O(1) with
+   B = 0.48204 in closed form (Theorem 2.4): 0.383 from the free part of the two main cusps (Part II, Lemma 6.3),
+   0.0288 = 2κ/π from the arcs on the free part (Proposition 2.2, Mellin inversion, κ = ∫ log(1 − x²)^{−1/2} dx over
+   [−1/2, 1/2] = 0.045231), 0.0569 + 0.0119 from the coefficients k ≥ p of the main cusps at height 1 and through the
+   arcs, (1/π) Σ r(β)² (E₁(πβ) + E₁(4πβ)) and its arc version, 0.0019 from the cusp of denominator 2 and −0.0005 from
+   the correlation terms (sums of exponential integrals; `closed_form_B.py`). The Siegel main term contributes nothing
+   to B (Lemma 2.3: Σ r(k)β(k) and Σ β(k)² grow linearly, without a logarithm). The fit over p ≥ 10⁴ gives 0.4817, the
+   local slopes at the largest primes 0.4819, 0.4820.
 2. **The odd Heegner discriminants (Section 3).** For D ∈ {3, 7, 11, 19, 43, 67, 163}, Θ^{(D)}_{1,p} = θ_D(z) θ_D(pz) of
    square-free level Dp: Siegel main term with closed-form densities at D and p (Theorem 3.1); Atkin–Lehner signs
    Θ|W_p = χ(p)Θ, Θ|W_D = −χ(p)Θ (Theorem 3.2); spectral support on the newforms with a(D) = χ_{−D}(p), a(p) = −χ_{−D}(p),
@@ -44,6 +48,7 @@ repository must sit beside this one.
 
 ```
 python subleading_log_anatomy.py                 # Section 2; ~1 min; writes results/subleading_log_anatomy.txt
+python closed_form_B.py                          # Theorem 2.4: the closed form of B against the anatomy; ~1 min
 python heegner_theta_unified.py 3 7 11           # Sections 3-4 for D = 3, 7, 11; ~3 min
 python heegner_theta_unified.py 19               # one D at a time for the large discriminants (memory); also 43, 67, 163
 python prime_discriminant_norm.py                # the first D = 3 exploration (notes/part4_explorations.tex)
@@ -53,7 +58,7 @@ python plot_heegner_volume_scaling.py            # Figure 2
 python plot_level77_duality.py                   # Figure 3
 ```
 
-Outputs: `results/subleading_log_anatomy.txt`, `results/heegner_theta_unified_{3_7_11,19,43,67,163}.txt`,
+Outputs: `results/subleading_log_anatomy.txt`, `results/closed_form_B.txt`, `results/heegner_theta_unified_{3_7_11,19,43,67,163}.txt`,
 `results/prime_discriminant_norm.txt`, `results/eisenstein_circle_check.txt`; figures in `figures/`. The paper compiles with
 `pdflatex` (run twice) from `paper/`.
 
