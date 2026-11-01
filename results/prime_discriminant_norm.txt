@@ -1,0 +1,113 @@
+D = 3: theta_3(z) theta_3(pz), level 3p
+
+1. Local densities against counts modulo ell^a (formula / count):
+   p =  2, ell =  3, a = 5: max relative error 2.2e-16
+   p =  2, ell =  2, a = 3: max relative error 0.0e+00
+   p =  5, ell =  3, a = 5: max relative error 2.2e-16
+   p =  5, ell =  5, a = 3: max relative error 0.0e+00
+   p =  7, ell =  3, a = 5: max relative error 0.0e+00
+   p =  7, ell =  7, a = 3: max relative error 2.2e-16
+   p = 11, ell =  3, a = 5: max relative error 2.2e-16
+   p = 11, ell = 11, a = 2: max relative error 0.0e+00
+   level 6 (p = 2, no cusp forms): max |T - M| over k <= 65536: 2.33e-09
+   level 15 (p = 5): T - M = c f_15 with c = 4.500000; max |a - c f_15| = 4.07e-10; f_15: a(2) = -1, a(3) = -1, a(5) = +1 (prediction a(3) = chi(5) = -1, a(5) = -chi(5) = +1)
+   level 21: sum_(k<=y) a(k)^2 / y^2 at y = X/4, X/2, X: 4.1839 4.1621 4.1754 (constant: T - M is a cusp form)
+   level 33: sum_(k<=y) a(k)^2 / y^2 at y = X/4, X/2, X: 4.7369 4.7454 4.7485 (constant: T - M is a cusp form)
+   level 39: sum_(k<=y) a(k)^2 / y^2 at y = X/4, X/2, X: 4.5680 4.5763 4.5663 (constant: T - M is a cusp form)
+
+2. Atkin-Lehner: ratio (Theta|_2 W_Q)(z)/Theta(z) against the prediction (W_p: chi(p), W_3: -chi(p), W_3p: -1):
+   p =  5 (chi(p) = -1): W_5: -1.000000+8.2e-16i (pred -1), W_3: +1.000000-4.5e-16i (pred +1), W_15: -1.000000+3.0e-16i (pred -1)
+   p =  7 (chi(p) = +1): W_7: +1.000000+3.4e-16i (pred +1), W_3: -1.000000+1.9e-16i (pred -1), W_21: -1.000000+3.6e-16i (pred -1)
+   p = 11 (chi(p) = -1): W_11: -1.000000+3.9e-16i (pred -1), W_3: +1.000000+6.0e-17i (pred +1), W_33: -1.000000+4.5e-16i (pred -1)
+   p = 13 (chi(p) = +1): W_13: +1.000000+1.8e-16i (pred +1), W_3: -1.000000-9.7e-16i (pred -1), W_39: -1.000000+4.9e-16i (pred -1)
+
+3. Hecke decomposition of G_{1,p} (T_2, then T_5, T_7, ... where components mix); newform of level 3p iff a(3) = +-1, a(9) = a(3)^2, a(p) = +-1; prediction for every newform component: a(3) = chi(p), a(p) = -chi(p)
+   p =  5 (chi(p) = -1), level 15: ||G||^2 (RS, X = 2^14) = 1.1455, 1 eigencomponents; dim S_2(Gamma_0(15)) = 1
+      a(2) = -1.0000, a(3) = -1.0000, a(5) = +1.0000, a(7) = -0.0000, a(5) = +1.0000: NEW level 15, share of ||G||^2 = 1.000 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.350151 (w = +1, spread 0e+00), L(1,phi x chi) = 0.921591 (twist level 45, w = +1, spread 3e-16), ||phi||^2 = 0.05657, <Theta,phi> = 0.254555, (9 sqrt3/2pi^2) chi eta L L = 0.254839, ratio = 0.99888
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.000   [1s]
+   p =  7 (chi(p) = +1), level 21: ||G||^2 (RS, X = 2^14) = 1.7720, 1 eigencomponents; dim S_2(Gamma_0(21)) = 1
+      a(2) = -1.0000, a(3) = +1.0000, a(5) = -2.0000, a(7) = -1.0000, a(7) = -1.0000: NEW level 21, share of ||G||^2 = 1.000 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.451115 (w = +1, spread 6e-17), L(1,phi x chi) = 1.103310 (twist level 63, w = +1, spread 2e-16), ||phi||^2 = 0.08751, <Theta,phi> = 0.393786, (9 sqrt3/2pi^2) chi eta L L = 0.393060, ratio = 1.00185
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.000   [1s]
+   p = 11 (chi(p) = -1), level 33: ||G||^2 (RS, X = 2^14) = 3.0203, 2 eigencomponents; dim S_2(Gamma_0(33)) = 3
+      a(2) = -2.0000, a(3) = +2.0000, a(5) = +1.0000, a(7) = -2.0000, a(11) = +1.0000: old (level 11), share of ||G||^2 = 0.535 (X = 2^14)
+      a(2) = +1.0000, a(3) = -1.0000, a(5) = -2.0000, a(7) = +4.0000, a(11) = +1.0000: NEW level 33, share of ||G||^2 = 0.465 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.747339 (w = +1, spread 2e-16), L(1,phi x chi) = 0.792307 (twist level 99, w = +1, spread 2e-16), ||phi||^2 = 0.15604, <Theta,phi> = 0.468132, (9 sqrt3/2pi^2) chi eta L L = 0.467611, ratio = 1.00111
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.000   [1s]
+   p = 13 (chi(p) = +1), level 39: ||G||^2 (RS, X = 2^14) = 3.3964, 2 eigencomponents; dim S_2(Gamma_0(39)) = 3
+      a(2) = -2.4142, a(3) = +1.0000, a(5) = +2.8284, a(7) = -2.8284, a(13) = -1.0000: NEW level 39, share of ||G||^2 = 0.368 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.479696 (w = +1, spread 2e-16), L(1,phi x chi) = 1.992706 (twist level 117, w = +1, spread 7e-16), ||phi||^2 = 0.45293, <Theta,phi> = 0.752898, (9 sqrt3/2pi^2) chi eta L L = 0.754888, ratio = 0.99736
+      a(2) = +0.4142, a(3) = +1.0000, a(5) = -2.8284, a(7) = +2.8284, a(13) = -1.0000: NEW level 39, share of ||G||^2 = 0.631 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.796422 (w = +1, spread 3e-16), L(1,phi x chi) = 0.979052 (twist level 117, w = +1, spread 3e-16), ||phi||^2 = 0.17697, <Theta,phi> = 0.615961, (9 sqrt3/2pi^2) chi eta L L = 0.615776, ratio = 1.00030
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.000   [1s]
+   p = 17 (chi(p) = -1), level 51: ||G||^2 (RS, X = 2^14) = 4.3152, 3 eigencomponents; dim S_2(Gamma_0(51)) = 5
+      a(2) = -2.5616, a(3) = -1.0000, a(5) = +3.5616, a(7) = +0.0000, a(17) = +1.0000: NEW level 51, share of ||G||^2 = 0.185 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.429036 (w = +1, spread 0e+00), L(1,phi x chi) = 2.333535 (twist level 153, w = +1, spread 0e+00), ||phi||^2 = 0.79017, <Theta,phi> = 0.794408, (9 sqrt3/2pi^2) chi eta L L = 0.790646, ratio = 1.00476
+      a(2) = -1.0000, a(3) = +3.0000, a(5) = -2.0000, a(7) = +4.0000, a(17) = +1.0000: old (level 17), share of ||G||^2 = 0.503 (X = 2^14)
+      a(2) = +1.5616, a(3) = -1.0000, a(5) = -0.5616, a(7) = -0.0000, a(17) = +1.0000: NEW level 51, share of ||G||^2 = 0.317 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.051442 (w = +1, spread 0e+00), L(1,phi x chi) = 0.696446 (twist level 153, w = +1, spread 4e-16), ||phi||^2 = 0.24348, <Theta,phi> = 0.576949, (9 sqrt3/2pi^2) chi eta L L = 0.578291, ratio = 0.99768
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.005   [1s]
+   p = 19 (chi(p) = +1), level 57: ||G||^2 (RS, X = 2^14) = 4.6369, 2 eigencomponents; dim S_2(Gamma_0(57)) = 5
+      a(2) = -2.0000, a(3) = +1.0000, a(5) = +1.0000, a(7) = +3.0000, a(19) = -1.0000: NEW level 57, share of ||G||^2 = 0.516 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.586510 (w = +1, spread 2e-16), L(1,phi x chi) = 2.140174 (twist level 171, w = +1, spread 0e+00), ||phi||^2 = 0.41502, <Theta,phi> = 0.996059, (9 sqrt3/2pi^2) chi eta L L = 0.991283, ratio = 1.00482
+      a(2) = +1.0000, a(3) = +1.0000, a(5) = -2.0000, a(7) = -0.0000, a(19) = -1.0000: NEW level 57, share of ||G||^2 = 0.483 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.085302 (w = +1, spread 0e+00), L(1,phi x chi) = 0.868361 (twist level 171, w = +1, spread 2e-16), ||phi||^2 = 0.24901, <Theta,phi> = 0.747040, (9 sqrt3/2pi^2) chi eta L L = 0.744260, ratio = 1.00373
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 0.999   [1s]
+   p = 23 (chi(p) = -1), level 69: ||G||^2 (RS, X = 2^14) = 5.3788, 4 eigencomponents; dim S_2(Gamma_0(69)) = 7
+      a(2) = -2.2361, a(3) = -1.0000, a(5) = +1.2361, a(7) = +3.2361, a(23) = +1.0000: NEW level 69, share of ||G||^2 = 0.242 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.472545 (w = +1, spread 2e-16), L(1,phi x chi) = 2.479274 (twist level 207, w = +1, spread 0e+00), ||phi||^2 = 0.65350, <Theta,phi> = 0.921587, (9 sqrt3/2pi^2) chi eta L L = 0.925211, ratio = 0.99608
+      a(2) = -1.6180, a(3) = +5.2361, a(5) = -3.2361, a(7) = -1.2361, a(23) = +1.0000: old (level 23), share of ||G||^2 = 0.257 (X = 2^14)
+      a(2) = +0.6180, a(3) = +0.7639, a(5) = +1.2361, a(7) = +3.2361, a(23) = +1.0000: old (level 23), share of ||G||^2 = 0.348 (X = 2^14)
+      a(2) = +2.2361, a(3) = -1.0000, a(5) = -3.2361, a(7) = -1.2361, a(23) = +1.0000: NEW level 69, share of ||G||^2 = 0.152 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.396883 (w = +1, spread 2e-16), L(1,phi x chi) = 0.711980 (twist level 207, w = +1, spread 4e-16), ||phi||^2 = 0.74791, <Theta,phi> = 0.781058, (9 sqrt3/2pi^2) chi eta L L = 0.785418, ratio = 0.99445
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 0.999   [1s]
+   p = 29 (chi(p) = -1), level 87: ||G||^2 (RS, X = 2^14) = 6.2709, 5 eigencomponents; dim S_2(Gamma_0(87)) = 9
+      a(2) = -2.4142, a(3) = +5.4142, a(5) = -1.0000, a(7) = -2.8284, a(29) = +1.0000: old (level 29), share of ||G||^2 = 0.173 (X = 2^14)
+      a(2) = -1.9354, a(3) = -1.0000, a(5) = +0.5082, a(7) = +3.6813, a(29) = +1.0000: NEW level 87, share of ||G||^2 = 0.274 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.515705 (w = +1, spread 1e-16), L(1,phi x chi) = 2.466757 (twist level 261, w = +1, spread 9e-16), ||phi||^2 = 0.59242, <Theta,phi> = 1.009164, (9 sqrt3/2pi^2) chi eta L L = 1.004618, ratio = 1.00452
+      a(2) = +0.4142, a(3) = +2.5858, a(5) = -1.0000, a(7) = +2.8284, a(29) = +1.0000: old (level 29), share of ||G||^2 = 0.346 (X = 2^14)
+      a(2) = +1.4626, a(3) = -1.0000, a(5) = +3.7216, a(7) = -1.3234, a(29) = +1.0000: NEW level 87, share of ||G||^2 = 0.082 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.353709 (w = +1, spread 2e-16), L(1,phi x chi) = 0.529722 (twist level 261, w = +1, spread 2e-16), ||phi||^2 = 0.62890, <Theta,phi> = 0.567217, (9 sqrt3/2pi^2) chi eta L L = 0.566300, ratio = 1.00162
+      a(2) = +2.4728, a(3) = -1.0000, a(5) = -4.2298, a(7) = +1.6421, a(29) = +1.0000: NEW level 87, share of ||G||^2 = 0.124 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.648193 (w = +1, spread 2e-16), L(1,phi x chi) = 0.827670 (twist level 261, w = +1, spread 4e-16), ||phi||^2 = 1.49298, <Theta,phi> = 1.075978, (9 sqrt3/2pi^2) chi eta L L = 1.077305, ratio = 0.99877
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 0.998   [1s]
+   p = 31 (chi(p) = +1), level 93: ||G||^2 (RS, X = 2^14) = 6.3980, 3 eigencomponents; dim S_2(Gamma_0(93)) = 9
+      a(2) = -2.1149, a(3) = +1.0000, a(5) = -0.3579, a(7) = +1.6421, a(31) = -1.0000: NEW level 93, share of ||G||^2 = 0.447 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.638975 (w = +1, spread 1e-16), L(1,phi x chi) = 2.714113 (twist level 279, w = +1, spread 9e-16), ||phi||^2 = 0.65679, <Theta,phi> = 1.371241, (9 sqrt3/2pi^2) chi eta L L = 1.369573, ratio = 1.00122
+      a(2) = +0.2541, a(3) = +1.0000, a(5) = +1.6813, a(7) = +3.6813, a(31) = -1.0000: NEW level 93, share of ||G||^2 = 0.308 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.171427 (w = +1, spread 4e-16), L(1,phi x chi) = 1.040213 (twist level 279, w = +1, spread 0e+00), ||phi||^2 = 0.46925, <Theta,phi> = 0.961324, (9 sqrt3/2pi^2) chi eta L L = 0.962301, ratio = 0.99898
+      a(2) = +1.8608, a(3) = +1.0000, a(5) = -3.3234, a(7) = -1.3234, a(31) = -1.0000: NEW level 93, share of ||G||^2 = 0.248 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.651486 (w = +1, spread 4e-16), L(1,phi x chi) = 0.818622 (twist level 279, w = +1, spread 3e-16), ||phi||^2 = 0.71668, <Theta,phi> = 1.066837, (9 sqrt3/2pi^2) chi eta L L = 1.067657, ratio = 0.99923
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.003   [1s]
+   p = 37 (chi(p) = +1), level 111: ||G||^2 (RS, X = 2^14) = 7.1301, 4 eigencomponents; dim S_2(Gamma_0(111)) = 11
+      a(2) = -2.4458, a(3) = +1.0000, a(5) = -0.6707, a(7) = +0.2693, a(37) = -1.0000: NEW level 111, share of ||G||^2 = 0.277 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.612793 (w = +1, spread 1e-16), L(1,phi x chi) = 3.268404 (twist level 333, w = +1, spread 9e-16), ||phi||^2 = 1.26615, <Theta,phi> = 1.582523, (9 sqrt3/2pi^2) chi eta L L = 1.581695, ratio = 1.00052
+      a(2) = -0.7968, a(3) = +1.0000, a(5) = +0.8456, a(7) = +4.6325, a(37) = -1.0000: NEW level 111, share of ||G||^2 = 0.374 (X = 2^14)  <- prediction OK
+         L(1,phi) = 0.943629 (w = +1, spread 3e-16), L(1,phi x chi) = 1.688110 (twist level 333, w = +1, spread 4e-16), ||phi||^2 = 0.59724, <Theta,phi> = 1.261508, (9 sqrt3/2pi^2) chi eta L L = 1.257986, ratio = 1.00280
+      a(2) = +1.3703, a(3) = +1.0000, a(5) = +1.7822, a(7) = -4.0606, a(37) = -1.0000: NEW level 111, share of ||G||^2 = 0.114 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.649900 (w = +1, spread 4e-16), L(1,phi x chi) = 0.568028 (twist level 333, w = +1, spread 2e-16), ||phi||^2 = 0.66649, <Theta,phi> = 0.736974, (9 sqrt3/2pi^2) chi eta L L = 0.740118, ratio = 0.99575
+      a(2) = +1.8723, a(3) = +1.0000, a(5) = -3.9571, a(7) = +3.1588, a(37) = -1.0000: NEW level 111, share of ||G||^2 = 0.236 (X = 2^14)  <- prediction OK
+         L(1,phi) = 1.796801 (w = +1, spread 4e-16), L(1,phi x chi) = 0.977519 (twist level 333, w = +1, spread 3e-16), ||phi||^2 = 1.13819, <Theta,phi> = 1.384447, (9 sqrt3/2pi^2) chi eta L L = 1.387071, ratio = 0.99811
+      all newform components obey a(3) = chi(p), a(p) = -chi(p): True; shares sum to 1.002   [1s]
+   Rankin-Selberg ratios <Theta,phi> / ((9 sqrt3/(2 pi^2)) chi(p) eta_p L L): 0.9989, 1.0018, 1.0011, 0.9974, 1.0003, 1.0048, 0.9977, 1.0048, 1.0037, 0.9961, 0.9944, 1.0045, 1.0016, 0.9988, 1.0012, 0.9990, 0.9992, 1.0005, 1.0028, 0.9958, 0.9981  (9 sqrt3/(2 pi^2) = 0.789720; D = 4 had 4/pi^2 = 0.405285)
+
+4. The norm. S_3(Y) = 3 (log Y)^2 + c_1' log Y + c_2' with
+   L'/L(1,chi_-3) = 0.368282 (gamma + log 2 + log pi - 3 log(Gamma(1/3)/Gamma(2/3))), c_1' = 6(a_1' - gamma) = 16.3701
+   check with mpmath: L'/L(1,chi_-3) = 0.368282, L(1,chi_-3) = 0.604600 (pi/(3 sqrt3) = 0.604600)
+   S_3(1e+02) = 152.0791; minus 3 (log Y)^2 - c_1' log Y = 13.0691 (-> c_2')
+   S_3(1e+03) = 269.2917; minus 3 (log Y)^2 - c_1' log Y = 13.0596 (-> c_2')
+   S_3(1e+04) = 418.3241; minus 3 (log Y)^2 - c_1' log Y = 13.0586 (-> c_2')
+   S_3(1e+05) = 599.1689; minus 3 (log Y)^2 - c_1' log Y = 13.0585 (-> c_2')
+   two main cusps (widths 3p, p): (1/4pi)(S_3(3p/4pi) + S_3(p/4pi)) = (3/(2 pi)) (log p)^2 + 0.7130 log p + O(1)   [D = 4: (1/pi)(log p)^2 + 0.3831 log p]
+   sandwich over the four cusps (widths 3p, p, 3, 1), Lambda_1 <= ||G||^2 <= Lambda_h, and the RS estimate:
+          p  RS (X=2^21)   Lambda_1   Lambda_h (3/2pi)log^2 Lambda_1/log^2  RS/log^2
+          5       1.1468     1.0757     1.3081       1.2368         0.4153    0.4427   [1s]
+          7       1.7687     1.6697     1.9943       1.8080         0.4409    0.4671   [0s]
+         11       3.0236     2.8878     3.3348       2.7454         0.5022    0.5258   [1s]
+         13       3.3980     3.2520     3.7328       3.1412         0.4943    0.5165   [1s]
+        101      11.8927    11.6208    12.5129      10.1697         0.5456    0.5584   [0s]
+       1009      26.4515    25.9660    27.2996      22.8424         0.5428    0.5529   [1s]
+      10007      42.0399    45.3852    47.1506      40.5097         0.5349    0.4955   [1s]
+     100003          nan    69.9211    72.1196      63.2871         0.5275       nan   [0s]
+   fit Lambda_1(1,p) = a (log p)^2 + b log p + c over p >= 100: a = 0.4815 (3/(2pi) = 0.4775), b = +0.6872, c = -1.811

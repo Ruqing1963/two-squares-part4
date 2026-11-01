@@ -1,0 +1,190 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\emergencystretch=2.5em
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\dd}{\mathrm{d}}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\vol}{vol}
+
+\title[Two explorations after Part III]{Two explorations after Part III:\\ the exact norm by the scalloped Parseval formula, and the Eisenstein integers}
+\author{Ruqing Chen}
+\date{\today\ (working notes)}
+
+\begin{document}
+\begin{abstract}
+Working notes for two questions raised after Part~III. (1)~The norm $\|G_{1,p}\|^2$ of the cusp form attached to $\theta^2(z)\theta^2(pz)$ is given exactly by a Parseval sum over the cusps whose bottom is the scalloped curve $y=\sqrt{1-\{x\}^2}$ of Waibel's fundamental domain, not the line $y=1$; the formula is evaluated to $p\approx4\cdot10^5$, reproduces the Rankin--Selberg values where these have converged, and splits the coefficient $B$ of $\log p$ in $\|G_{1,p}\|^2=\frac1\pi(\log p)^2+B\log p+O(1)$ into its parts, two of which are determined analytically: $0.383$ from the free part of the two main cusps (Part~II, Lemma~6.10) and $2\kappa/\pi=0.0288$ from the region between the arcs and the line $y=1$, $\kappa=\int_{-1/2}^{1/2}\log(1-x^2)^{-1/2}\dd x$. (2)~For the Eisenstein integers, $\theta_3(z)=\sum e((x^2+xy+y^2)z)\in M_1(\Gamma_0(3),\chi_{-3})$ and $\Theta^{(3)}_{1,p}=\theta_3(z)\theta_3(pz)\in M_2(\Gamma_0(3p))$: the level is square-free, all cusps are Atkin--Lehner, the Siegel main term has the same local densities at $3$ and at $p$, the Atkin--Lehner signs are $\Theta|W_p=\chi(p)\Theta$, $\Theta|W_3=-\chi(p)\Theta$, so that the newforms of level $3p$ in the support are exactly those with $a_\varphi(3)=\chi_{-3}(p)$, $a_\varphi(p)=-\chi_{-3}(p)$ (half of them, no inert vanishing), the Rankin--Selberg formula holds with the constant $9\sqrt3/(2\pi^2)$ in place of $4/\pi^2$, and $\|G^{(3)}_{1,p}\|^2\sim\frac3{2\pi}(\log p)^2$.
+\end{abstract}
+\maketitle
+
+\section{The exact norm: Parseval over the scalloped domain}\label{sec:scallop}
+
+Throughout, $G\in S_2(\Gamma_0(L))$, and for a class of pairs $(a,c)$ modulo $L$ with $(c,L)=d$ let $\varrho=\varrho_{a,c}\in\mathrm{SL}_2(\Z)$ with first column $(a,c)$, $\hat d\in\{d,d/2\}$ as in Part~I, Lemma~2.9, $Q=L/\hat d$, and $G|_2\varrho=\sum_{k\ge1}b(k)e(kz/Q)$. Part~I, Lemma~2.8 (Waibel's (22)) is
+\begin{equation}\label{eq:W1}
+\|G\|^2=\frac\mu{\tilde\mu}\sum_{c\ (L)}\sum_{\substack{a\ (L)\\(a,c,L)=1}}I(\varrho_{a,c}),\qquad I(\varrho)=\int_{\bigcup_{0\le t<L}t\mathcal F}|G|_2\varrho|^2\,\dd x\,\dd y,
+\end{equation}
+and Part~II, Section~6.7 bounds $I(\varrho)$ from below and above by the integrals over the strips $y\ge1$ and $y\ge\sqrt3/2$. The exact region is the \emph{scalloped strip}
+\[
+\bigcup_{0\le t<L}t\mathcal F=\bigl\{-\tfrac12\le x\le L-\tfrac12,\ y\ge s(x)\bigr\},\qquad s(x)=\sqrt{1-\{x\}^2},
+\]
+$\{x\}$ the distance from $x$ to the nearest integer, and $s$ has period $1$.
+
+\begin{proposition}[Scalloped Parseval]\label{prop:scallop}
+For $j\in\Z$ and $c>0$ let $\Psi_j(c)=\int_{-1/2}^{1/2}e(-jx)\,e^{-c\sqrt{1-x^2}}\,\dd x$ (real, $\Psi_{-j}=\Psi_j$). Then
+\[
+I(\varrho)=L\sum_{k\ge1}\ \sum_{j\ge-k/Q}b(k)\overline{b(k+jQ)}\,\frac{\Psi_j(c_{k,j})}{c_{k,j}},\qquad c_{k,j}=\frac{2\pi(2k+jQ)}{Q},
+\]
+and therefore, with the number $\varphi(L)Q/\,[\hat d=d/2\colon4]$ of pairs in the class and $\mu/\tilde\mu=1/(L\varphi(L))$,
+\[
+\|G\|^2=\sum_{d\mid L}w_d\sum_{k,j}b_d(k)\overline{b_d(k+jQ_d)}\frac{\Psi_j(c_{k,j})}{c_{k,j}},\qquad w_d=\begin{cases}Q_d&\hat d=d,\\ Q_d/4&\hat d=d/2.\end{cases}
+\]
+The terms $j=0$ with $\Psi_0(c)$ replaced by $e^{-c}$ are the height-$1$ sums $\Lambda_1(d)$ of Part~II; $\Psi_0(c)-e^{-c}>0$ integrates over the region between the arcs and the line $y=1$; the terms $j\ne0$ are correlations $b(k)\overline{b(k+jQ)}$ of coefficients at distance a multiple of the width, which a flat bottom annihilates. Since $c_{k,j}\ge2\pi j$ and $\Psi_j(c)\le e^{-c\sqrt3/2}$, only $j\le7$ contribute above $10^{-16}$.
+\end{proposition}
+\begin{proof}
+$|G|_2\varrho|^2=\sum_{k,k'}b(k)\overline{b(k')}e((k-k')x/Q)e^{-2\pi(k+k')y/Q}$. Integrating in $y$ from $s(x)$ to $\infty$ gives $e^{-c\,s(x)}/c$ with $c=2\pi(k+k')/Q$, and since $s$ has period $1$ and the $x$-range consists of $L$ consecutive unit periods,
+\[
+\int_{-1/2}^{L-1/2}e\Bigl(\frac{(k-k')x}Q\Bigr)e^{-c\,s(x)}\dd x=\Bigl(\sum_{t=0}^{L-1}e\Bigl(\frac{(k-k')t}Q\Bigr)\Bigr)\int_{-1/2}^{1/2}e\Bigl(\frac{(k-k')x}Q\Bigr)e^{-c\,s(x)}\dd x,
+\]
+where the geometric sum is $L$ if $Q\mid k-k'$ and $0$ otherwise ($Q\mid L$). Writing $k'=k+jQ$ the inner integral is $\Psi_{-j}(c)=\Psi_j(c)$. The count of pairs and $\mu/\tilde\mu$ are as in Part~II, Lemmas~6.9 and 6.12.
+\end{proof}
+
+For $G=G_{1,p}$, $L=4p$, the six classes are $d\in\{1,4,2\}$ (widths $4p,p,4p$; $b=a_{G_{1,p}}/Q$ at the Atkin--Lehner cusps, $b=\frac1p(T^{\mathrm{odd}}-M^{\mathrm{odd}})$ at the cusp of denominator $2$) and $d\in\{p,4p,2p\}$ (widths $4,1,4$). The script \texttt{subleading\_log\_anatomy.py} evaluates the formula with $k\le14p$ and $j\le8$, $\Psi_j$ by Gauss--Legendre quadrature on a logarithmic grid in $c$ with cubic splines. Checks: $\Lambda_1\le\|G\|^2\le\Lambda_{\sqrt3/2}$, and agreement with the Rankin--Selberg estimates of Part~II where these have converged ($7.4286$ against $7.4287$ at $p=101$).
+
+\subsection{The arc term by Mellin inversion}
+At a main cusp of width $Q\in\{p,4p\}$ the free part of the $j=0$ sum is $\frac1Q\sum_kr(k)^2\Psi_0(4\pi k/Q)/(4\pi k/Q)=\frac1{4\pi}\sum_k\frac{r(k)^2}k\Psi_0(k/Y)$, $Y=Q/4\pi$. Since
+\[
+\int_0^\infty\Psi_0(c)c^{w-1}\dd c=\Gamma(w)\int_{-1/2}^{1/2}(1-x^2)^{-w/2}\dd x=\Gamma(w)\bigl(1+\kappa w+O(w^2)\bigr),
+\]
+with $\kappa=\int_{-1/2}^{1/2}\log(1-x^2)^{-1/2}\dd x=0.045231$,
+the computation of Part~II, Lemma~6.10 ($D(1+w)=4w^{-2}(1+a_1w+\dots)$, residue at $w=0$) gives
+\[
+\sum_k\frac{r(k)^2}k\Psi_0(k/Y)=2(\log Y)^2+(c_1+4\kappa)\log Y+O(1),
+\]
+i.e.\ the arcs add $4\kappa\log Y$ at each main cusp and $\frac{2\kappa}\pi\log p=0.028795\log p$ in total. (The first-order approximation $\Psi_0(c)-e^{-c}\approx c\kappa_1e^{-c}$ with $\kappa_1=\int(1-\sqrt{1-x^2})\dd x=0.04339$ gives $4\kappa_1$ instead; the higher orders in $c$ also contribute to the $\log Y$ term, and the Mellin computation is exact. The value $\int_{-1/2}^{1/2}\log(1-x^2)^{-1/2}\dd x=1-\pi/2+\log2=0.1223$ proposed for this constant is incorrect; the antiderivative $-\frac12(x\log(1-x^2)-2x+\log\frac{1+x}{1-x})$ gives $0.045231$.)
+
+\subsection{The anatomy of $B$}
+Write $\|G_{1,p}\|^2-\frac1\pi(\log p)^2=C_1'+C_2+C_3+C_4$ with $C_1=\frac1{4\pi}(S(p/4\pi)+S(p/\pi))$ the free part of the two main cusps, $C_1'=C_1-\frac1\pi(\log p)^2=0.38312\log p+O(1)$ (Lemma~6.10), $C_2=\Lambda_1(\text{main cusps})-C_1$ (the correction $r(k)^2\to|a(k)|^2$: the Siegel main term for $k<p$, the terms with $\beta\ge1$ for $k\ge p$), $C_3=\Lambda_1$ of the other four cusps, and $C_4=\|G\|^2-\Lambda_1$ (the part below height $1$, split into the diagonal arc terms and the correlations). The numerical results are in Section~\ref{sec:results}.
+
+\section{The Eisenstein integers}\label{sec:D3}
+Let $\chi=\chi_{-3}$, $N(x,y)=x^2+xy+y^2$, $r_3(n)=\#\{N=n\}=6\sum_{d\mid n}\chi(d)$, $\theta_3(z)=\sum_nr_3(n)e(nz)\in M_1(\Gamma_0(3),\chi)$ (the space is one-dimensional, so $\theta_3$ is the Eisenstein series $E_1(z,\chi)$ with constant term $1$), and for a prime $p\ne3$
+\[
+\Theta_{1,p}=\theta_3(z)\theta_3(pz)=E+G\in M_2(\Gamma_0(3p)),\qquad T(k)=\sum_{\alpha+p\beta=k}r_3(\alpha)r_3(\beta).
+\]
+The level $3p$ is square-free: $\Gamma_0(3p)$ has four cusps, all of them Atkin--Lehner ($W_1,W_3,W_p,W_{3p}$, widths $3p,p,3,1$), and there is no cusp of denominator $2\delta$.
+
+\begin{proposition}[Main term]\label{prop:siegel3}
+$E=\sum_kM(k)e(kz)$ with $M(k)=\frac{4\pi^2k}{3p}\prod_\ell\beta_\ell(k)$, where $\beta_\ell(k)=(1-\ell^{-2})\sigma_{-1}(\ell^{v_\ell(k)})$ for $\ell\nmid3p$, and, with $v=v_\ell(k)$,
+\[
+\beta_p(k)=(1+\chi(p))-\chi(p)\Bigl(1+\frac1p\Bigr)p^{-v},\qquad \beta_3(k)=(1+\e)-\e\cdot\frac43\,3^{-v},\quad \e=-\chi(p)=\Bigl(\frac{-p}3\Bigr).
+\]
+\end{proposition}
+\begin{proof}
+Siegel's theorem for the quaternary form $Q=N(x,y)+pN(z,w)$ of determinant $9p^2$ (Gram matrix) gives $r(\operatorname{gen}Q,k)=4\pi^2k\prod_\ell\beta_\ell(k)/\sqrt{9p^2}$ with the usual densities $\beta_\ell(k)=\lim\ell^{-3a}\#\{Q\equiv k\bmod\ell^a\}$, and the genus theta series is the Eisenstein part. At $\ell\nmid3p$ the discriminant is a square and the form is unimodular (also at $\ell=2$: $N\oplus N\cong H\oplus H$ over $\Z_2$, the Arf invariants adding to $0$), whence the standard formula. At $\ell=p$: the solutions with $(x,y)\not\equiv0\pmod p$ are non-singular, lift with multiplicity $p^{a-1}$, and number $p-\chi(p)$ modulo $p$ for $p\nmid k$ and $(p-1)(1+\chi(p))$ for $p\mid k$; those with $x\equiv y\equiv0$ reduce, after dividing by $p$, to the same form with the blocks interchanged and $k/p$. Hence $\beta_p(k)=1-\chi(p)/p$ for $p\nmid k$ and $\beta_p(k)=(1+\chi(p))(1-1/p)+\beta_p(k/p)/p$ for $p\mid k$, which iterates to the closed form. At $\ell=3$: $N=(x+y/2)^2+\frac34y^2\cong u^2+3v^2$ over $\Z_3$, so $Q\cong u^2+ps^2+3(v^2+pt^2)$; the solutions with $(u,s)\not\equiv0\pmod3$ are non-singular and number $3-\e$ for $3\nmid k$ and $2(1+\e)$ for $3\mid k$ modulo $3$, with $\e=(-p/3)$; those with $u\equiv s\equiv0$ reduce to $3(u'^2+ps'^2)+(v^2+pt^2)\equiv k/3$, the same form, with the factor $9/3^3=1/3$. So $\beta_3(k)=1-\e/3$ for $3\nmid k$ and $\beta_3(k)=\frac23(1+\e)+\frac13\beta_3(k/3)$ otherwise. The script checks both against direct counts modulo $3^5$, $p^3$ (relative error $10^{-16}$), and the whole formula at the level $6$, where there are no cusp forms and $T=M$ to $10^{-9}$ for $k\le2^{16}$, and at the level $15$, where $T-M=\frac92f_{15}$.
+\end{proof}
+
+\begin{proposition}[Atkin--Lehner signs and the spectral support]\label{prop:AL3}
+$\Theta_{1,p}|_2W_p=\chi(p)\Theta_{1,p}$, $\Theta_{1,p}|_2W_3=-\chi(p)\Theta_{1,p}$, $\Theta_{1,p}|_2W_{3p}=-\Theta_{1,p}$. Consequently $\langle\Theta_{1,p},\varphi\rangle\ne0$ for a newform $\varphi$ of level $3p$ requires $\eta_p(\varphi)=\chi(p)$ and $\eta_3(\varphi)=-\chi(p)$, i.e.
+\[
+a_\varphi(3)=\chi_{-3}(p),\qquad a_\varphi(p)=-\chi_{-3}(p),
+\]
+and the root number of $\varphi$ is $+1$.
+\end{proposition}
+\begin{proof}
+For $W_p=\left(\begin{smallmatrix}pa&b\\3pc&pd\end{smallmatrix}\right)$, $pad-3bc=1$: $W_p=\gamma B_p$ with $\gamma=\left(\begin{smallmatrix}a&b\\3c&pd\end{smallmatrix}\right)\in\Gamma_0(3)$, so $\theta_3|_1W_p=\chi(pd)p^{1/2}\theta_3(pz)$; and $B_pW_p=p\left(\begin{smallmatrix}pa&b\\3c&d\end{smallmatrix}\right)$ with the second factor in $\Gamma_0(3)$, so $\theta_3(p\,\cdot)|_1W_p=p^{-1/2}\chi(d)\theta_3$. The product is $\chi(p)\Theta_{1,p}$. For $W_3=\left(\begin{smallmatrix}3a&b\\3pc&3d\end{smallmatrix}\right)$, $3ad-pbc=1$: both $W_3$ and $\left(\begin{smallmatrix}3a&pb\\3c&3d\end{smallmatrix}\right)$ (from $B_pW_3=\left(\begin{smallmatrix}3a&pb\\3c&3d\end{smallmatrix}\right)B_p$) are Atkin--Lehner matrices of level $3$, and every such matrix is $\left(\begin{smallmatrix}0&-1\\3&0\end{smallmatrix}\right)\gamma'$ with $\gamma'=\left(\begin{smallmatrix}c'&d'\\-3a'&-b'\end{smallmatrix}\right)\in\Gamma_0(3)$; from $\theta_3(-1/(3z))=-i\sqrt3z\,\theta_3(z)$ one gets $\theta_3|_1W=-i\chi(-b')\theta_3$, $b'$ the upper right entry. The two upper right entries are $b$ and $pb$, so $\Theta|_2W_3=(-i)^2\chi(-b)\chi(-pb)\Theta=-\chi(p)\Theta$, and $W_{3p}=W_3W_p$ modulo $\Gamma_0(3p)$ gives $-\Theta$. The script verifies the three signs numerically at a base point (to $10^{-9}$). The conditions on $\varphi$ follow from $\langle\Theta,\varphi\rangle=\langle\Theta|W,\varphi|W\rangle$ as in Part~II, Remark~6.8(i), and $a_\varphi(\ell)=-\eta_\ell(\varphi)$ for $\ell\,\|\,3p$; the root number is $-\eta_3\eta_p=+1$.
+\end{proof}
+
+In contrast with $D=4$, where every newform of level $4n$ has $\eta_4=-1$ (Part~II, Proposition~6.17) so that the support is empty when $\chi_{-4}(n)=-1$, at the ramified prime $3$ both signs of $\eta_3$ occur among the newforms of level $3p$ (Steinberg and its unramified twist): for every $p$ the support is the half of the newforms with $a_\varphi(3)=\chi_{-3}(p)$, further restricted by $L(1,\varphi)L(1,\varphi\otimes\chi)\ne0$.
+
+\begin{proposition}[Rankin--Selberg]\label{prop:RS3}
+For a newform $\varphi$ of weight $2$ and level $3p$,
+\[
+\langle\Theta_{1,p},\varphi\rangle=\frac{9\sqrt3}{2\pi^2}\,\chi(p)\,\eta_p(\varphi)\,L(1,\varphi)\,L(1,\varphi\otimes\chi_{-3}).
+\]
+\end{proposition}
+\begin{proof}
+The proof of Part~II, Theorem~6.7(i) applies verbatim: $\theta_3=E(z,0)$ for the weight-one Eisenstein series of $\Gamma_0(3)$ with character $\chi$ (the space is one-dimensional), the cusps of $\Gamma_0(3p)$ over $\infty$ are $W_Q\infty$, $Q\mid p$, the unfolding gives $\sum_{Q\mid p}\chi(Q)\Gamma(s+1)(4\pi)^{-s-1}\sum_jr_3(j)\overline{c_Q((p/Q)j)}((p/Q)j)^{-s-1}$, and the Dirichlet series is $6L(w,\varphi)L(w,\varphi\otimes\chi)/(L(2w-1,\chi)\prod_{\ell\mid p}(1-\chi(\ell)\ell^{1-2w}))$ (at $\ell=3$ the degenerate factor $(1-a_\varphi(3)x)^{-1}$ equals $L_3(w,\varphi)L_3(w,\varphi\otimes\chi)$ since $\chi(3)=0$). At $s=0$ the constant is $\frac{6}{4\pi L(1,\chi_{-3})}=\frac{6\cdot3\sqrt3}{4\pi^2}=\frac{9\sqrt3}{2\pi^2}$, against $\frac4{4\pi L(1,\chi_{-4})}=\frac4{\pi^2}$ for $D=4$. The script verifies the formula for the newform components of $G_{1,p}$, $p\le37$, with ratios $1.000\pm0.003$.
+\end{proof}
+
+\subsection{The norm}
+With $D_3(s)=\sum r_3(k)^2k^{-s}=36\,\zeta(s)^2L(s,\chi)^2/((1+3^{-s})\zeta(2s))$ and $L(1,\chi_{-3})=\pi/(3\sqrt3)$, $36L(1,\chi)^2\cdot\frac34\cdot\frac6{\pi^2}=6$, and the computation of Part~II, Lemma~6.10 gives
+\begin{gather*}
+S_3(Y)=\sum_k\frac{r_3(k)^2}ke^{-k/Y}=3(\log Y)^2+c_1'\log Y+c_2',\\
+c_1'=6\Bigl(\gamma+2\frac{L'}L(1,\chi_{-3})-2\frac{\zeta'}\zeta(2)+\frac{\log3}4\Bigr)=16.370,
+\end{gather*}
+with $\frac{L'}L(1,\chi_{-3})=\gamma+\log2+\log\pi-3\log\frac{\Gamma(1/3)}{\Gamma(2/3)}=0.368282$ (from the functional equation and $\zeta'(0,a)=\log\Gamma(a)-\frac12\log2\pi$) and $c_2'=13.06$ numerically. All four cusps carry $G_{1,p}$ itself (Proposition~\ref{prop:AL3}), so Part~II, Lemma~6.9 gives
+\[
+\Lambda_h(G_{1,p})=\frac1{4\pi}\sum_k\frac{|a(k)|^2}k\sum_{Q\in\{3p,p,3,1\}}e^{-4\pi hk/Q},\qquad \Lambda_1\le\|G_{1,p}\|^2\le\Lambda_{\sqrt3/2},
+\]
+and the two wide cusps give the leading term $\frac1{4\pi}(S_3(3p/4\pi)+S_3(p/4\pi))=\frac3{2\pi}(\log p)^2+0.7130\log p+O(1)$; so $\|G^{(3)}_{1,p}\|^2\sim\frac3{2\pi}(\log p)^2$, against $\frac1\pi(\log p)^2$ for $D=4$ (Part~II, Theorem~6.14), the ratio $3/2$ being $(6/4)^2\cdot(L(1,\chi_{-3})/L(1,\chi_{-4}))^2\cdot\frac{(1+\frac12)/(1+\frac13)}{1}\cdot\frac{\zeta\text{-factors}}{}$, i.e.\ the ratio of the residues $6/4$ of $D_3$ and $D_4$. [The proof of the asymptotic formula, Part~II, Theorem~6.14, carries over with the three parts of Proposition~6.13 for the four Atkin--Lehner classes and no odd classes; we have not written it out.]
+
+\section{Numerical results}\label{sec:results}
+
+\subsection{The anatomy of $B$ (\texttt{results/subleading\_log\_anatomy.txt})}
+The exact norm of Proposition~\ref{prop:scallop} for twelve primes from $101$ to $400009$ ($k\le14p$, $j\le8$; a few seconds per prime). It lies inside the sandwich at every $p$, and agrees with the Rankin--Selberg estimate of Part~II where that estimate has converged: $7.42858$ against $7.42871$ at $p=101$, $10.1189$ against $10.1162$ at $211$; at $p=1009$ the estimate ($16.937$, window $2^{21}$) is already $0.018$ below the exact value $16.955$, and at $p=10007$ it is $3.3$ below. The parts of $\|G_{1,p}\|^2-\frac1\pi(\log p)^2$:
+\begin{center}\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{r|rrrrrr|r}
+\toprule
+$p$ & $C_1'$ & $C_2$ & $C_3$ & $C_4$ arc, main & free part & $C_4$ corr.\ & total, $/\log p$\\
+\midrule
+$101$ & $1.128$ & $-0.815$ & $0.154$ & $0.164$ & $0.151$ & $-0.001$ & $0.649$, $0.141$\\
+$1009$ & $1.999$ & $-0.711$ & $0.162$ & $0.259$ & $0.218$ & $-0.002$ & $1.727$, $0.250$\\
+$10007$ & $2.876$ & $-0.582$ & $0.166$ & $0.352$ & $0.284$ & $-0.003$ & $2.830$, $0.307$\\
+$100003$ & $3.758$ & $-0.453$ & $0.169$ & $0.446$ & $0.350$ & $-0.004$ & $3.939$, $0.342$\\
+$400009$ & $4.289$ & $-0.374$ & $0.171$ & $0.502$ & $0.390$ & $-0.005$ & $4.607$, $0.357$\\
+\bottomrule
+\end{tabular}
+\end{center}
+($C_3$ includes the arc terms of the four narrow cusps, $0.02$; the correlation terms of the narrow cusps are below $10^{-4}$.) Least-squares fits $b\log p+c$ over the six primes $p\ge10^4$:
+\begin{center}\small
+\begin{tabular}{l|rr|l}
+\toprule
+part & $b$ & $c$ & analytic\\
+\midrule
+$C_1'$ (free part, main cusps) & $0.38292$ & $-0.651$ & $b=(c_1-2\log4\pi^2)/2\pi=0.38301$\\
+$C_2$ (Siegel term, $k\ge p$) & $0.05656$ & $-1.104$ & \\
+$C_3$ (other four cusps, height $1$) & $0.00138$ & $0.153$ & \\
+$C_4$ arc, main cusps & $0.04074$ & $-0.023$ & free part: $b=2\kappa/\pi=0.02879$ (measured $0.02879$)\\
+$C_4$ arc, other cusps & $0.00057$ & $0.017$ & \\
+$C_4$ correlations ($j\ne0$) & $-0.00046$ & $0.001$ & \\
+\midrule
+$\|G_{1,p}\|^2-\frac1\pi(\log p)^2$ & $0.48170$ & $-1.607$ & $a=0.31845$ in the three-parameter fit ($1/\pi=0.31831$)\\
+\bottomrule
+\end{tabular}
+\end{center}
+So $B\approx0.48$, not $0.46$: Remark~6.16 of Part~II fitted Rankin--Selberg estimates that had not converged. Of the $0.48$, $0.383$ is the free part (proved), $0.029$ the arcs acting on the free part (proved above), $0.012$ the arcs acting on the Siegel and tail corrections, $0.057$ those corrections themselves at height $1$, and $0.002$ the other cusps; the correlation terms $a(k)a(k+jQ)$ are negligible ($-0.0005\log p$). The part below height $1$ is $0.041\log p$, against the bound $0.134\log p$ of Part~II, Section~6.7 and the $0.04\log p$ observed there. The two remaining pieces with a $\log p$ coefficient, $C_2$ and the arc term on the corrections, are sums over $k$ of $r(k)M(k)$, $M(k)^2$, $r(k)T'(k)$, $T'(k)^2$ against $e^{-k/Y}$ or $\Psi_0$; their constants are computable by the same Mellin method from the Dirichlet series of $r\beta$ and $\beta^2$, which we have not done.
+
+\subsection{The Eisenstein integers (\texttt{results/prime\_discriminant\_norm.txt})}
+Local densities: the closed forms of Proposition~\ref{prop:siegel3} agree with the counts modulo $3^5$ and $p^3$ ($p=2,5,7,11$) to $10^{-16}$; at the level $6$, $T=M$ for all $k\le2^{16}$ to $10^{-9}$; at the level $15$, $T-M=\frac92f_{15}$ to $10^{-10}$, and $f_{15}$ has $a(3)=-1=\chi(5)$, $a(5)=+1=-\chi(5)$. Atkin--Lehner: the three signs of Proposition~\ref{prop:AL3} hold to $10^{-15}$ at $p=5,7,11,13$. Spectral support: for $p\in\{5,7,11,13,17,19,23,29,31,37\}$ the Hecke decomposition of $G_{1,p}$ (by $T_2$, then $T_5,T_7$ where eigenvalues coincide) gives $21$ newform components of level $3p$ and $8$ oldform components from level $p$; \emph{every} newform component has $a(3)=\chi_{-3}(p)$ and $a(p)=-\chi_{-3}(p)$, for both signs of $\chi_{-3}(p)$ ($p=7,13,19,31,37$ with $+1$: $1,2,2,3,4$ newforms; $p=5,11,17,23,29$ with $-1$: $1,1,2,2,3$ newforms, and $0,1,1,2,2$ oldforms, all with $a_f(p)=+1$, i.e.\ root number $+1$); the shares of the norm sum to $1.000\pm0.005$. Rankin--Selberg: for the $21$ newform components, $\langle\Theta,\varphi\rangle/\bigl(\frac{9\sqrt3}{2\pi^2}\chi(p)\eta_p(\varphi)L(1,\varphi)L(1,\varphi\otimes\chi)\bigr)$ lies in $[0.994,1.005]$ (the twist has level $9p$ in every case, root numbers $+1$ throughout). The norm:
+\begin{center}\small
+\begin{tabular}{r|rrrr|rr}
+\toprule
+$p$ & RS ($2^{21}$) & $\Lambda_1$ & $\Lambda_{\sqrt3/2}$ & $\frac3{2\pi}(\log p)^2$ & $\Lambda_1/(\log p)^2$ & RS$/(\log p)^2$\\
+\midrule
+$11$ & $3.024$ & $2.888$ & $3.335$ & $2.745$ & $0.502$ & $0.526$\\
+$101$ & $11.893$ & $11.621$ & $12.513$ & $10.170$ & $0.546$ & $0.558$\\
+$1009$ & $26.452$ & $25.966$ & $27.300$ & $22.842$ & $0.543$ & $0.553$\\
+$10007$ & ($42.04$) & $45.385$ & $47.151$ & $40.510$ & $0.535$ & \\
+$100003$ & & $69.921$ & $72.120$ & $63.287$ & $0.528$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+(the estimate at $p=10007$ has not converged, as for $D=4$), with the fit $\Lambda_1=0.4815(\log p)^2+0.687\log p-1.81$ over $p\ge100$, against the leading term $3/(2\pi)=0.4775$ and the main-cusp coefficient $0.713$ of $\log p$. $S_3(Y)-3(\log Y)^2-c_1'\log Y$ is $13.0585$ at $Y=10^4,10^5$, confirming $c_1'=16.370$. The exact norm by Proposition~\ref{prop:scallop} applies to $D=3$ as well (four Atkin--Lehner classes, no odd class) and has not been run.
+
+\subsection*{Scripts}
+\texttt{code/subleading\_log\_anatomy.py} (imports the tables and the Siegel main term of Part~II from \texttt{../two-squares-mean-square/code}), \texttt{code/prime\_discriminant\_norm.py} (self-contained). Floating point throughout.
+\end{document}
+
+\end{document}

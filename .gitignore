@@ -1,0 +1,6 @@
+__pycache__/
+*.aux
+*.log
+*.out
+gemini-code-*.md
+ai_studio_code*.txt
