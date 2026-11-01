@@ -2,7 +2,7 @@
 
 Part IV of the series after Part I ([two-squares-theta-level](https://github.com/Ruqing1963/two-squares-theta-level),
 DOI 10.5281/zenodo.23826176), Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
-DOI 10.5281/zenodo.23826297) and Part III ([two-squares-short-intervals](https://github.com/Ruqing1963/two-squares-short-intervals),
+version 3, DOI 10.5281/zenodo.23866064) and Part III ([two-squares-short-intervals](https://github.com/Ruqing1963/two-squares-short-intervals),
 DOI 10.5281/zenodo.23826860). The repository holds
 
 * `paper/two_squares_part4.tex` (+ PDF, 3 figures): the paper;
@@ -45,7 +45,8 @@ DOI 10.5281/zenodo.23826860). The repository holds
    checked in 285 902 cases); the dispersion form has the sums S(inv(27m) N, |h|₃²; m'k) with the dual condition 3 | |h|₃²
    in place of 2 | |h|², and the obstruction of Part III is unchanged (Proposition 5.2).
 5. **Correction to Parts II–III (Section 1.3).** The Kloosterman sums of the dispersion form are S(inv(16m) N, |h|²; m'k),
-   not S(16N, m|h|²; m'k); the corrected versions of Parts II and III are in their repositories, and Table 1 of the paper
+   not S(16N, m|h|²; m'k); the corrected versions are archived as Part II, version 3 (DOI 10.5281/zenodo.23866064) and Part III (DOI
+   10.5281/zenodo.23826860), and Table 1 of the paper
    lists which statements of Parts II–III depend on the identity (the Kuznetsov heuristic of Part III, Section 3.5(b) is
    withdrawn; everything that only opens the sums is unchanged).
 
