@@ -119,8 +119,11 @@ class Heegner:
     def count_density(self, p, ell, a):
         q = ell ** a
         x = np.arange(q)
-        N = (np.add.outer(x * x, self.c * x * x) + np.outer(x, x)) % q
-        dist = np.bincount(N.ravel(), minlength=q).astype(float)
+        x2 = (x * x) % q
+        dist = np.zeros(q)
+        for xi in range(q):                                   # row by row: q <= 3 10^4 is fine
+            vals = (x2[xi] + xi * x + self.c * x2) % q
+            dist += np.bincount(vals, minlength=q)
         distp = np.zeros(q)
         for t in range(q):
             distp[(p * t) % q] += dist[t]
@@ -327,7 +330,7 @@ def main():
             if p == D:
                 continue
             for ell in (D, p):
-                a = max(2, int(np.floor(log(1000) / log(ell))))
+                a = max(2, int(np.floor(log(30000) / log(ell))))
                 dens = H.count_density(p, ell, a)
                 q = ell ** a
                 errs = [abs(H.beta_formula(p, ell, k) / dens[k % q] - 1)
@@ -392,8 +395,8 @@ def main():
                 a = v / v[1]
                 Xv = len(v) - 1
                 clean = hecke_ok(a, (D, p))
-                stD = abs(abs(a[D]) - 1) < 1e-6 and abs(a[D * D] - a[D] ** 2) < 1e-6     # Steinberg at D
-                stp = abs(abs(a[p]) - 1) < 1e-6 and abs(a[p * p] - a[p] ** 2) < 1e-6     # Steinberg at p
+                stD = abs(abs(a[D]) - 1) < 1e-6 and (D * D > Xv or abs(a[D * D] - a[D] ** 2) < 1e-6)   # Steinberg at D
+                stp = abs(abs(a[p]) - 1) < 1e-6 and (p * p > Xv or abs(a[p * p] - a[p] ** 2) < 1e-6)   # Steinberg at p
                 is_new = stD and stp
                 Xs = min(Xn, Xv)
                 share = norm_RS(v, Xs, vol) / normG if Xv >= 2000 else float('nan')
@@ -480,7 +483,7 @@ def main():
         say(f"   fit Lambda_1 = a (log p)^2 + b log p + c over p >= 100: a = {q[0]:.4f} (6/(pi(D+1)) = {6 / (pi * (D + 1)):.4f}), "
             f"b = {q[1]:+.4f} (wide cusps: {main_b:+.4f}), c = {q[2]:+.3f}")
         say()
-    with open(os.path.join(RES, "heegner_theta_unified.txt"), "w", encoding="utf-8") as fh:
+    with open(os.path.join(RES, "heegner_theta_unified_" + "_".join(str(D) for D in DS) + ".txt"), "w", encoding="utf-8") as fh:
         fh.write("\n".join(out) + "\n")
 
 

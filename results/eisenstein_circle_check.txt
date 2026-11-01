@@ -1,0 +1,6 @@
+D = 3 circle lemma for 2 <= c <= 40 coprime to 3 (odd and even c): 285902 cases, failures: none
+Kloosterman sums depend only on the product of their arguments: S(N mbar, 16bar h2; c) against S(16N, m h2; c) and S(inv(16m) N, h2; c):
+   N=10 m=5 c=21 |h|^2=5: -1.1099  -4.4940  -1.1099
+   N=14 m=9 c=55 |h|^2=13: +5.9279  +5.9279  +5.9279
+   N=22 m=13 c=35 |h|^2=2: -14.5428  +1.3719  -14.5428
+   N=30 m=7 c=33 |h|^2=10: -4.7958  +0.1763  -4.7958

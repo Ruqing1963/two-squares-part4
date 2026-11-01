@@ -19,6 +19,7 @@
 \newcommand{\e}{\varepsilon}
 \newcommand{\dd}{\mathrm{d}}
 \DeclareMathOperator{\gen}{gen}
+\DeclareMathOperator{\vol}{vol}
 
 \title[Theta series of the odd Heegner discriminants]{The theta series $\theta_D(z)\theta_D(pz)$\\ for the odd Heegner discriminants}
 \author{Ruqing Chen}
@@ -147,6 +148,82 @@ $100003$ & & $69.921$ & $72.120$ & & $33.833$ & $35.116$ & & $23.479$ & $24.540$
 \end{tabular}
 \end{center}
 The exact norm by the scalloped Parseval formula of the working notes applies verbatim (four Atkin--Lehner classes) and has not been run for $D\ne4$.
+
+\section{The remaining odd discriminants, and the even ones}
+\subsection{$D=19$ and $D=43$ (\texttt{results/heegner\_theta\_unified\_19\_43\_partial.txt})}
+The script was run for $D=19,43,67,163$; the system stopped it for lack of memory during the norm scan of $D=43$, so that $D=19$ is complete, $D=43$ is complete up to the spectral support, and $D=67,163$ were not reached (they are run one at a time by \texttt{python heegner\_theta\_unified.py 67}, etc.; for these two the Hecke decomposition is beyond the Prony method, $\dim S_2(\Gamma_0(Dp))\ge60$, and only the densities, the Atkin--Lehner signs and the norm scan would be checked). For $D=19$ ($N_{19}=x^2+xy+5y^2$, $L(1,\chi)=0.720731$, $\frac{L'}L(1,\chi)=-0.084914$, $C_{19}=0.220824$, $\frac{12}{D+1}=0.6$, $c_1^{(19)}=2.033$, $\frac6{\pi(D+1)}=0.0955$): the densities agree with the counts to $2\cdot10^{-16}$, the three Atkin--Lehner signs hold for $p\le13$, every newform component of $G_{1,p}$ for $p\in\{5,7,11,13,17\}$ ($23$ newforms) has $a(19)=\chi_{-19}(p)$, $a(p)=-\chi_{-19}(p)$, the Rankin--Selberg ratios lie in $[0.9965,1.0047]$, and the norm scan gives
+\begin{center}\footnotesize
+\begin{tabular}{r|rrr|rr}
+\toprule
+$p$ & RS & $\Lambda_1$ & $\Lambda_{\sqrt3/2}$ & $\frac6{20\pi}(\log p)^2$ & $\Lambda_1/(\log p)^2$\\
+\midrule
+$101$ & $3.402$ & $3.293$ & $3.637$ & $2.034$ & $0.155$\\
+$1009$ & $6.533$ & $6.502$ & $7.023$ & $4.569$ & $0.136$\\
+$10007$ & & $10.733$ & $11.429$ & $8.102$ & $0.127$\\
+$100003$ & & $15.975$ & $16.843$ & $12.657$ & $0.121$\\
+\bottomrule
+\end{tabular}
+\end{center}
+with the fit $\Lambda_1=0.0961(\log p)^2+0.290\log p-0.09$ over $p\ge100$, against $0.0955$. For $D=43$ ($N_{43}=x^2+xy+11y^2$, $L(1,\chi)=0.479088$, $\frac{L'}L(1,\chi)=0.249482$, $C_{43}=0.332204$, $\frac{12}{D+1}=0.2727$, $c_1^{(43)}=1.255$, $\frac6{\pi(D+1)}=0.0434$): densities and Atkin--Lehner signs as above; for $p=5,7,11$ (levels $215,301,473$, $\dim S_2=21,27,43$) the decomposition resolves $13$ newform components, all obeying the law, with Rankin--Selberg ratios in $[0.9936,1.0038]$ (at $p=5$ one numerically contaminated duplicate of a component, with $a(43)=-1.0001$, is mislabelled by the script; its clean copy obeys the law); for $p=13,17,19$ ($\dim S_2\ge49$) the Prony recurrence of order $\le11$ does not separate the span, and nothing is tested. The predicted growth constants for the two largest discriminants are $\frac6{68\pi}=0.0281$ and $\frac6{164\pi}=0.01165$, the latter $41$ times smaller than for $D=3$; Section~\ref{sec:sieve} says what this suppression does and does not mean.
+
+\subsection{The even discriminants $D=4,8$}
+For $D=4$ ($\theta_4=\theta^2$, $w_4=4$) and $D=8$ ($\theta_8(z)=\sum e((x^2+2y^2)z)$, $w_8=2$) the theta series are again the Eisenstein series $E_1(z,\chi_{-D})$ of weight one, since $h=1$, and the level $Dp$ has, besides the Atkin--Lehner cusps $W_Q\infty$, $Q\mid Dp$, the cusps of denominator $2\delta$ ($D=4$) and $2\delta,4\delta$ ($D=8$) of Part~II, Section~6.6. The two ingredients that fix the constants are the same: $r_D=w_D\sigma_\chi$ and the class number formula $w_D^2L(1,\chi_{-D})^2=4\pi^2/D$. Hence the Rankin--Selberg constant is $C_D=w_D/(4\pi L(1,\chi_{-D}))=w_D^2\sqrt D/(8\pi^2)$ for all nine discriminants ($C_4=4/\pi^2$, Part~II; $C_8=\sqrt2/\pi^2$, with the same proof once the cusps of $\Gamma_0(8p)$ over the cusp $\infty$ of $\Gamma_0(8)$ are listed, which we have not written out), and the residue of $D_D(s)=\sum r_D(k)^2k^{-s}$ at $s=1$ is $w_D^2L(1,\chi)^2\cdot\frac6{\pi^2}\cdot\prod_{\ell\mid D}(1+\ell^{-1})^{-1}=24/\psi(D)$, where the Euler factor at each ramified prime is $(1+\ell^{-s})^{-1}$ because $\sigma_\chi(\ell^j)=1$ there, and $\psi(D)=D\prod_{\ell\mid D}(1+1/\ell)$ is the Dedekind function. The two wide Atkin--Lehner cusps (widths $Dp$ and $p$, which carry $\pm G_{1,p}$ by the same computation as in Theorem~\ref{thm:AL}, using $\theta_D(-1/(Dz))=-i\sqrt Dz\,\theta_D(z)$ for $D=8$ as well) therefore give, uniformly for the nine discriminants,
+\[
+\|G^{(D)}_{1,p}\|^2\ \ge\ \frac{6}{\pi\,\psi(D)}(\log p)^2+O(\log p)=\frac{2}{\vol(\Gamma_0(D)\backslash\HH)}(\log p)^2+O(\log p),
+\]
+since $\vol(\Gamma_0(D)\backslash\HH)=\frac\pi3\psi(D)$; this is $\frac1\pi$ for $D=4$ (Part~II, Theorem~6.14, where it is the asymptotic), $\frac1{2\pi}$ for $D=8$, and $\frac6{\pi(D+1)}$ for the odd $D$. The growth constant of the cusp form is thus the reciprocal of the volume of the modular curve of the \emph{discriminant}, not of the level: the natural normalisation of $\|G\|^2$ against $\vol(\Gamma_0(Dp)\backslash\HH)$, which the Rankin--Selberg mean square $\sum_{k\le Y}|a(k)|^2/k\sim16\pi^2\|G\|^2Y/\vol(\Gamma_0(Dp)\backslash\HH)$ uses, makes the mean square of $r_D(\alpha)r_D(\beta)$ over $\alpha+p\beta\le Y$ equal to $2(\log Y)^2\cdot\frac{Y}{p}\cdot\frac{\vol(\Gamma_0(D)\backslash\HH)}{\vol(\Gamma_0(Dp)\backslash\HH)}\cdots$, and the index $[\Gamma_0(D):\Gamma_0(Dp)]=p+1$ cancels against the $1/p$ of the sparse sequence $p\beta$.
+
+\section{Does a large discriminant help the sieve?}\label{sec:sieve}
+For the sieve problem of Parts~I--III with $r_D$ in place of $r$, i.e.\ the sequence $r_D(n)r_D(N-n)$, the norm $\|G^{(D)}_{m,m'}\|^2\sim\frac6{\pi\psi(D)}(\log mm')^2$ enters the remainder through the uniform bound $|a_G(N)|\ll N^{1/2+\e}\|G\|$ (Part~I, Theorem~2.3, whose proof is independent of $D$), and it decreases like $1/D$. This does not help. First, the main term decreases as well: the density of the sequence is governed by $r_D$, whose mean value is $w_DL(1,\chi_{-D})=2\pi/\sqrt D$, so the main term $X_N=\sum_nr_D(n)r_D(N-n)\asymp\frac{4\pi^2}D\,N\,\mathfrak S_D(N)$ is of size $N/D$, while the remainder for one pair $(d,e)$ of sieve moduli is $\ll N^{1/2+\e}(\log de)/\sqrt{\psi(D)}$; the ratio remainder/main is therefore $\asymp\sqrt D\cdot N^{-1/2}(\log de)$ for prime $D$, \emph{larger} by $\sqrt D$, not smaller. Second, and decisively, the level of distribution is an exponent, and $D$ is fixed: the proof of the level $1/2$ (Part~I, Theorem~3.2) sums $|a_{G_{d,e}}(N)|$ over $de\le N^{1/2-\e}$ and loses only constants and $N^\e$ in $D$, so the level is $1/2$ for every $D$, no more and no less; and the sieve dimension is $2$ for every $D$, since $\sum_{p\le z}\omega_D(p)/p=2\log\log z+O(1)$ with $\omega_D(p)=2(1+\chi_{-D}(p))$ on average. What a large discriminant changes is only the constant in the final count ($\asymp N/(D(\log N)^2)$ in place of $N/(\log N)^2$) and, for the odd $D$, the shape of the fundamental domain (no cusps of denominator $2\delta$), which simplifies the analysis of the norm but has no bearing on the dispersion problem of Section~\ref{sec:eis}.
+
+\section{The Eisenstein dispersion form}\label{sec:eis}
+Here $D=3$, $m,m'$ coprime square-free integers prime to $3N$, and $T(m,m';N)=\sum_{m\alpha+m'\beta=N}r_3(\alpha)r_3(\beta)$. We follow Part~III, Section~3 (in its corrected form: the Kloosterman sums there are $S(\overline{16m}N,|h|^2;m'k)$, a Kloosterman sum depending on its arguments only through their product, so that the inverse of $16m$ modulo the modulus cannot be removed).
+
+\begin{lemma}[The circle modulo $c$]\label{lem:circle3}
+Let $(c,3)=1$, $c$ odd or even, $(a,c)=1$, $h\in\Z^2$, and $|h|_3^2=h_1^2-h_1h_2+h_2^2$ the norm of the dual (hexagonal) lattice. With $c'^{*}$ the product of the primes dividing $c'$ to an odd power and $\chi=\chi_{-3}$ (so $\chi(2)=-1$),
+\[
+F_c(a;h):=\sum_{\substack{x,y\bmod c\\ N_3(x,y)\equiv a\ (c)}}e\Bigl(\frac{h_1x+h_2y}c\Bigr)=\sum_{g\mid(c,h_1,h_2)}g\,\chi\Bigl(\Bigl(\frac cg\Bigr)^{*}\Bigr)S\Bigl(a,\ \overline3\,\Bigl|\frac hg\Bigr|_3^2;\ \frac cg\Bigr).
+\]
+\end{lemma}
+\begin{proof}
+As in Part~III, Lemma~3.1. Detect the congruence by $\frac1c\sum_{t\bmod c}e(t(N_3(x,y)-a)/c)$; for $(t,c)=g$ the sum over $(x,y)$ vanishes unless $g\mid h$, and for $(t,c)=1$ one completes the square: with the Gram matrix $A=\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)$, $N_3=\frac12x^{\mathsf T}Ax$, the substitution $x\mapsto x-\bar tA^{-1}h$ (legitimate modulo $c$ since $\det A=3$ is invertible, also at $2$) gives $\sum_{x,y}e((tN_3(x,y)+h\cdot x)/c)=e(-\bar t\,h^{\mathsf T}A^{-1}h/(2c))\,G_A(t;c)$ with $h^{\mathsf T}A^{-1}h/2=|h|_3^2/3$, and $G_A(t;c)=\sum_{x,y}e(tN_3(x,y)/c)=G(t;c)\,G(3\bar4t;c)$ for odd $c$ after diagonalising $N_3=(x+y/2)^2+\frac34y^2$, which equals $c\,\chi((c)^{*})$ by the evaluation of the quadratic Gauss sums prime by prime, the twisting Jacobi symbols of the Chinese remainder theorem squaring to $1$; at the prime $2$ the form is unimodular and $G_A(t;2^\nu)=(-1)^\nu2^\nu=\chi((2^\nu)^{*})2^\nu$. The script \texttt{eisenstein\_circle\_check.py} verifies the identity for all $a$, $h$ and all $c\le40$ coprime to $3$, odd and even ($285\,902$ cases).
+\end{proof}
+
+\emph{The decomposition.} Since the ideal $(\sqrt{-3})$ is principal of norm $3$, $r_3(3\beta')=r_3(\beta')$, and the terms of $T(m,m';N)$ with $3\mid\beta$ are $T(m,3m';N)$: with $T^\flat(m,m';N)=\sum_{3\nmid\beta}r_3(\alpha)r_3(\beta)$,
+\[
+a_{G_{m,m'}}(N)-a_{G_{m,3m'}}(N)=T^\flat(m,m';N)-M^\flat(m,m';N),
+\]
+the analogue of $a_G(N)-a_G(N/2)=T^{\mathrm{odd}}-M^{\mathrm{odd}}$ of Part~III (there $r(2n)=r(n)$ for the ideal $(1+i)$). In $T^\flat$, $r_3(\beta)\ne0$ forces $\beta\equiv1\pmod3$ (every prime $\equiv2\pmod3$ divides $\beta$ to an even power), so $\chi(\beta/k)=\chi(k)$ and $r_3(\beta)=12\sum_{k\mid\beta,\,k<\sqrt\beta}\chi(k)+6\chi(\sqrt\beta)[\beta=\square]$; the divisors $k$ are prime to $3$ and to $m$ (a common prime would divide $N$) but may be even. Hence
+\begin{gather*}
+T^\flat(m,m';N)=12\sum_{\substack{k<\sqrt{N/m'}\\ 3\nmid k}}\chi(k)\,\mathcal N_k+6\sum_j\chi(j)\,r_3^\flat\Bigl(\frac{N-m'j^2}m\Bigr),\\
+\mathcal N_k=\#\Bigl\{(x,y):\ N_3(x,y)\equiv N\bar m\ (m'k),\ mN_3(x,y)\not\equiv N\ (3),\ 0<N_3(x,y)<Y_k\Bigr\},
+\end{gather*}
+$Y_k=(N-m'k^2)/m$. The condition modulo $3$ is the analogue of the parity condition $x+y$ odd of Part~III: Poisson summation on the classes modulo $3c$, $c=m'k$, gives
+\[
+\mathcal N_k=\frac{Y_k}{(3c)^2}\sum_{h\in\Z^2}\hat w\Bigl(\frac{h\sqrt{Y_k}}{3c}\Bigr)\,\epsilon_3(h)\,F_c(N\bar m;\ \bar3h),
+\]
+where $\bar3h$ is the Chinese-remainder twist and $\epsilon_3(h)$ is the Fourier transform of the admissible classes modulo $3$: since $N_3(x,y)\equiv(x-y)^2\pmod3$, the condition $mN_3\not\equiv N\pmod 3$ is $x\equiv y$ if $N\bar m\equiv1$, $x\not\equiv y$ if $N\bar m\equiv0$, and empty if $N\bar m\equiv2\pmod3$, so that
+\[
+\epsilon_3(h)=3\,[h_1+h_2\equiv0\ (3)],\qquad 9[h\equiv0\ (3)]-3[h_1+h_2\equiv0\ (3)],\qquad 9,
+\]
+respectively. As $|h|_3^2\equiv(h_1+h_2)^2\pmod3$, the condition $h_1+h_2\equiv0\pmod3$ is $3\mid|h|_3^2$: exactly the condition $h_1\equiv h_2\pmod2$, i.e.\ $2\mid|h|^2$, of Part~III, with the ramified prime of the field in the role of $2$. By Lemma~\ref{lem:circle3} the leading term $g=1$ of $F_c(N\bar m;\bar3h)$ is $\chi((m'k)^{*})S(N\bar m,\overline{27}|h|_3^2;m'k)$, and $\chi(k)\chi((m'k)^{*})=\chi(m')\chi(k/k^{*})=\chi(m')$ for square-free $m'$, a constant sign for each $m'$ (in Part~III, $m'\equiv1\pmod4$ made it $+1$). We have:
+
+\begin{proposition}\label{prop:eisdisp}
+With the notation above, the leading term ($g=1$) of $a_{G_{m,m'}}(N)-a_{G_{m,3m'}}(N)$ is
+\[
+12\,\chi(m')\sum_{\substack{k<\sqrt{N/m'}\\ 3\nmid k}}\frac{Y_k}{(3m'k)^2}\sum_{h\ne0}\hat w\Bigl(\frac{h\sqrt{Y_k}}{3m'k}\Bigr)\,\epsilon_3(h)\,S\bigl(\overline{27m}\,N,\ |h|_3^2;\ m'k\bigr),
+\]
+and the remainder sum of the sieve at the level $N^\theta$ has as its leading term the trilinear form $\sum_{m'}\Lambda'_{m'}\sum_{c\equiv0\,(m')}\sum_m\Lambda_m\sum_jb_{m,j}(c)S(\overline{27m}N,j;c)$ over the moduli $c=m'k$ prime to $3$, odd or even, with $j=|h|_3^2\ll mm'$ a norm from $\Z[\zeta_3]$; by the Chinese remainder theorem its $m$-th piece is the bilinear form in the two moduli
+\[
+\mathfrak B^{(3)}_m=\sum_{m'}\Lambda'_{m'}\sum_{k\le K}\sum_hw_{k,m'}(h)\,S\bigl(\overline{27m}N\bar k,\ |h|_3^2\bar k;\ m'\bigr)\,S\bigl(\overline{27m}N\overline{m'},\ |h|_3^2\overline{m'};\ k\bigr),
+\]
+the inverse of $27m$ taken modulo $m'$ and modulo $k$ respectively.
+\end{proposition}
+
+\emph{Comparison with the Gaussian case.} Nothing in the structure changes. (i) The fixed argument is again the single integer $N$, carried by a unit ($\overline{27m}$ in place of $\overline{16m}$) modulo the modulus, so the obstacle (a) of Part~III, Section~3.4, the absence of an average over it, is the same, and so is the obstruction to the Kuznetsov formula. (ii) The sizes are the same: $|h|\ll m'k\sqrt{m/N}$, so the $h$-box has side $H\le\sqrt{mm'}$, below $\sqrt q$ for every modulus $q=[c_1,c_2]$ of a Poisson step, and the Cauchy--Schwarz arrangements (A1), (A2) of Part~III, Section~4 give the same diagonals ($E^{1/4}N^{3/4}$ and $\sqrt{EN}$); there is no tighter grouping, because the groupings depend only on the lengths of the variables and on the Weil mean square of Kloosterman sums over the dual lattice, which is the same for the hexagonal lattice. (iii) The modulus $m'k$ now ranges over all $k$ prime to $3$, even $k$ included: more moduli, no gain. (iv) The $2$-adic ``impurity'' of Part~III (the cusps of denominator $2\delta$, the parity condition) has moved to the prime $3$: the condition $3\nmid\beta$ produces $\epsilon_3(h)$ and the dual condition $3\mid|h|_3^2$, as $2\nmid\beta$ produced $h_1\equiv h_2\pmod2$. This is not an accident: the ramified prime of the field is where the ideal of norm $\ell$ is principal, and removing it from the divisor sum of $r_D(\beta)$ is what makes the divisors $k<\sqrt\beta$ pair with $\beta/k$ under $\chi$. The clean level $3p$ matters for the holomorphic side (Sections~2--5), not for the dispersion form; a level beyond $1/2$ needs the bilinear saving over $(m',k)$ of Part~III, Section~4.5, in the Eisenstein setting as in the Gaussian one.
+
+\section*{Scripts}
+\texttt{code/eisenstein\_circle\_check.py} (Lemma~\ref{lem:circle3}, and the Kloosterman product identity behind the correction of Part~III; output in \texttt{results/eisenstein\_circle\_check.txt}).
 
 \section*{Script}
 \texttt{code/heegner\_theta\_unified.py} (self-contained; Kronecker symbol, $r_D$, $T$, $M$, counts of local densities, Atkin--Lehner check at a base point, Hecke decomposition by $T_2$ then $T_3,T_5,T_7,T_{13}$ where eigenvalues coincide, central values by the smoothed functional equation, norms by Rankin--Selberg and by the cusp sums); output in \texttt{results/heegner\_theta\_unified.txt}. Floating point.
