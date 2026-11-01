@@ -1,0 +1,192 @@
+sigma_{-1} table to 8100000 in 14s; kappa = 0.045229
+D = 4 check (A = 4, widths 4p and p): b_1 = 0.383005 (0.383005), b_2 = 0.028794 (0.028794), b_3 = 0.056874 (0.056874), b_4 = 0.011936 (0.011936), b_6 (main cusps) = -0.000460 (-0.000460)   [Theorem 2.4 / closed_form_B.py in brackets]
+
+==================== D = 3: A = 24/(D+1) = 6.00000, 6/(pi(D+1)) = 0.47746, c_1 = 16.3701; r_D table to 3600081 in 8s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.712985
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.043190
+   b_3 (tail, height 1)                = +0.051731   [E_1(4 pi/D) = 0.00301]
+   b_4 (arcs on the tail)              = +0.014112
+   b_6 (correlations)                  = -0.000906
+   B_D = sum                           = +0.821111
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101    12.4072   -0.82898    0.26271   -0.00248   0.05179    11.6208    12.5129    11.8903   11.8927    1.7206   0.3728   [1s]
+      1009    26.7095   -0.78680    0.39714   -0.00460   0.05263    25.9660    27.2996    26.3679   26.4515    3.5255   0.5097   [1s]
+      4001    37.6958   -0.71506    0.47606   -0.00585   0.05281    37.0241    38.6168    37.5037   37.7323    4.6563   0.5614   [1s]
+     10007    46.0115   -0.66974    0.52869   -0.00667   0.05283    45.3852    47.1506    45.9166   42.0399    5.4069   0.5870   [1s]
+     20011    52.8304   -0.63544    0.56845   -0.00731   0.05283    52.2384    54.1343    52.8089       nan    5.9744   0.6032   [0s]
+     40009    60.1060   -0.59967    0.60816   -0.00793   0.05283    59.5497    61.5759    60.1593       nan    6.5432   0.6175   [0s]
+    100003    70.4300   -0.55233    0.66066   -0.00876   0.05284    69.9211    72.1196    70.5824       nan    7.2953   0.6337   [0s]
+    200003    78.7739   -0.51640    0.70037   -0.00939   0.05284    78.3010    80.6298    79.0013       nan    7.8645   0.6443   [1s]
+    400009    87.5769   -0.48064    0.74009   -0.01002   0.05284    87.1397    89.5988    87.8792       nan    8.4336   0.6538   [2s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.05173; local slopes +0.05162 +0.05168 +0.05185 +0.05158
+    arcs wide: predicted +0.05730; local slopes +0.05731 +0.05731 +0.05730 +0.05731
+    corr wide: predicted -0.00091; local slopes -0.00090 -0.00091 -0.00091 -0.00091
+       narrow: predicted +0.00000; local slopes +0.00001 +0.00000 +0.00000 +0.00000
+   exact-lead: predicted +0.82111; local slopes +0.82096 +0.82105 +0.82122 +0.82096   (p = 20011 ... 400009)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.4776 (6/(pi(D+1)) = 0.4775), b = +0.8172, c = -2.134; exact - lead (log p)^2 = b log p + c with b = +0.82031 (B_D = +0.82111), c = -2.149
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 11.8903, RS (window 2^21) = 11.8927, difference -0.0025
+
+==================== D = 7: A = 24/(D+1) = 3.00000, 6/(pi(D+1)) = 0.23873, c_1 = 5.9749; r_D table to 4200063 in 12s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.207019
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.021595
+   b_3 (tail, height 1)                = +0.086841   [E_1(4 pi/D) = 0.06516]
+   b_4 (arcs on the tail)              = +0.013688
+   b_6 (correlations)                  = -0.000259
+   B_D = sum                           = +0.328885
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     5.6044   -0.37871    0.13889   -0.00057   0.07608     5.2942     5.7744     5.4400    5.4366    0.3552   0.0770   [0s]
+      1009    12.4088   -0.21678    0.22096   -0.00117   0.07839    12.2627    13.0129    12.4902   12.5564    1.0690   0.1546   [1s]
+      4001    17.6956   -0.09828    0.26973   -0.00153   0.07866    17.6682    18.5785    17.9442   17.4000    1.5205   0.1833   [1s]
+     10007    21.7164   -0.01910    0.30209   -0.00177   0.07871    21.7683    22.7847    22.0763   19.0393    1.8215   0.1978   [1s]
+     20011    25.0222    0.04136    0.32652   -0.00195   0.07874    25.1346    26.2311    25.4669       nan    2.0497   0.2070   [0s]
+     40009    28.5565    0.10115    0.35098   -0.00213   0.07874    28.7286    29.9054    29.0852       nan    2.2771   0.2149   [0s]
+    100003    33.5815    0.18067    0.38331   -0.00236   0.07875    33.8332    35.1160    34.2219       nan    2.5784   0.2240   [1s]
+    200003    37.6499    0.24090    0.40777   -0.00254   0.07875    37.9618    39.3248    38.3748       nan    2.8064   0.2299   [2s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.08684; local slopes +0.08725 +0.08629 +0.08680 +0.08690
+    arcs wide: predicted +0.03528; local slopes +0.03526 +0.03530 +0.03529 +0.03528
+    corr wide: predicted -0.00026; local slopes -0.00026 -0.00026 -0.00026 -0.00026
+       narrow: predicted +0.00000; local slopes +0.00003 +0.00001 +0.00001 +0.00000
+   exact-lead: predicted +0.32888; local slopes +0.32923 +0.32830 +0.32883 +0.32894   (p = 10007 ... 200003)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.2389 (6/(pi(D+1)) = 0.2387), b = +0.3260, c = -1.192; exact - lead (log p)^2 = b log p + c with b = +0.32851 (B_D = +0.32888), c = -1.204
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 5.4400, RS (window 2^21) = 5.4366, difference +0.0035
+
+==================== D = 11: A = 24/(D+1) = 2.00000, 6/(pi(D+1)) = 0.15915, c_1 = 3.4971; r_D table to 6600099 in 20s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.132560
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.014397
+   b_3 (tail, height 1)                = +0.132494   [E_1(4 pi/D) = 0.17366]
+   b_4 (arcs on the tail)              = +0.014821
+   b_6 (correlations)                  = -0.000166
+   B_D = sum                           = +0.294106
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     3.8589   -0.00458    0.11242   -0.00030   0.12214     3.9686     4.3630     4.0886    4.0918    0.6987   0.1514   [0s]
+      1009     8.3803    0.28559    0.18096   -0.00073   0.12479     8.7826     9.4025     8.9709    9.0395    1.3568   0.1962   [0s]
+      4001    11.8970    0.46748    0.22130   -0.00096   0.12501    12.4815    13.2337    12.7099       nan    1.7607   0.2123   [0s]
+     10007    14.5724    0.58718    0.24813   -0.00111   0.12506    15.2766    16.1168    15.5317       nan    2.0285   0.2202   [0s]
+     20011    16.7725    0.67898    0.26840   -0.00123   0.12507    17.5685    18.4751    17.8437       nan    2.2322   0.2254   [0s]
+     40009    19.1249    0.77103    0.28865   -0.00134   0.12508    20.0129    20.9860    20.3083       nan    2.4362   0.2299   [0s]
+    100003    22.4699    0.89191    0.31542   -0.00149   0.12508    23.4789    24.5397    23.8009       nan    2.7052   0.2350   [1s]
+    200003    25.1784    0.98386    0.33567   -0.00161   0.12509    26.2793    27.4065    26.6214       nan    2.9091   0.2383   [3s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.13249; local slopes +0.13247 +0.13286 +0.13195 +0.13266
+    arcs wide: predicted +0.02922; local slopes +0.02925 +0.02923 +0.02922 +0.02922
+    corr wide: predicted -0.00017; local slopes -0.00017 -0.00017 -0.00017 -0.00017
+       narrow: predicted +0.00000; local slopes +0.00002 +0.00001 +0.00000 +0.00000
+   exact-lead: predicted +0.29411; local slopes +0.29404 +0.29447 +0.29356 +0.29427   (p = 10007 ... 200003)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.1593 (6/(pi(D+1)) = 0.1592), b = +0.2901, c = -0.658; exact - lead (log p)^2 = b log p + c with b = +0.29348 (B_D = +0.29411), c = -0.674
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 4.0886, RS (window 2^21) = 4.0918, difference -0.0032
+
+==================== D = 19: A = 24/(D+1) = 1.20000, 6/(pi(D+1)) = 0.09549, c_1 = 2.0334; r_D table to 5700171 in 18s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.121415
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.008638
+   b_3 (tail, height 1)                = +0.178141   [E_1(4 pi/D) = 0.40250]
+   b_4 (arcs on the tail)              = +0.014393
+   b_6 (correlations)                  = -0.000128
+   B_D = sum                           = +0.322459
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     2.6911    0.42463    0.09822   -0.00031   0.18548     3.2938     3.6401     3.3991    3.4022    1.3652   0.2958   [0s]
+      1009     5.4915    0.83080    0.15245   -0.00059   0.18847     6.5033     7.0279     6.6626    6.5330    2.0942   0.3028   [0s]
+      4001     7.6591    1.08224    0.18456   -0.00078   0.18869     8.9225     9.5526     9.1139       nan    2.5444   0.3068   [0s]
+     10007     9.3028    1.25120    0.20596   -0.00089   0.18875    10.7352    11.4354    10.9478       nan    2.8459   0.3090   [0s]
+     20011    10.6519    1.37279    0.22183   -0.00098   0.18876    12.2059    12.9581    12.4343       nan    3.0674   0.3097   [0s]
+     40009    12.0923    1.49654    0.23780   -0.00107   0.18877    13.7700    14.5747    14.0143       nan    3.2911   0.3106   [1s]
+    100003    14.1377    1.65883    0.25888   -0.00119   0.18877    15.9777    16.8515    16.2430       nan    3.5856   0.3114   [2s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.17814; local slopes +0.18430 +0.17546 +0.17862 +0.17716
+    arcs wide: predicted +0.02303; local slopes +0.02334 +0.02290 +0.02306 +0.02301
+    corr wide: predicted -0.00013; local slopes -0.00012 -0.00013 -0.00013 -0.00013
+       narrow: predicted +0.00000; local slopes +0.00006 +0.00002 +0.00001 +0.00000
+   exact-lead: predicted +0.32246; local slopes +0.32888 +0.31960 +0.32294 +0.32143   (p = 4001 ... 100003)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.0945 (6/(pi(D+1)) = 0.0955), b = +0.3434, c = -0.232; exact - lead (log p)^2 = b log p + c with b = +0.32450 (B_D = +0.32246), c = -0.148
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 3.3991, RS (window 2^21) = 3.4022, difference -0.0030
+
+==================== D = 43: A = 24/(D+1) = 0.54545, 6/(pi(D+1)) = 0.04341, c_1 = 1.2554; r_D table to 5161161 in 17s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.143340
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.003926
+   b_3 (tail, height 1)                = +0.204686   [E_1(4 pi/D) = 0.92516]
+   b_4 (arcs on the tail)              = +0.011823
+   b_6 (correlations)                  = -0.000088
+   B_D = sum                           = +0.363687
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     1.8356    1.04680    0.09313   -0.00031   0.27572     3.1522     3.4770     3.2509    3.2409    2.3264   0.5041   [0s]
+      1009     3.3170    1.49495    0.12969   -0.00053   0.27830     5.0843     5.5293     5.2194    4.8726    3.1429   0.4544   [1s]
+      4001     4.4230    1.76778    0.15134   -0.00065   0.27852     6.4633     6.9794     6.6200       nan    3.6339   0.4381   [0s]
+     10007     5.2507    1.95631    0.16569   -0.00073   0.27856     7.4795     8.0427     7.6505       nan    3.9678   0.4308   [0s]
+     20011     5.9249    2.09765    0.17659   -0.00080   0.27857     8.2951     8.8940     8.4769       nan    4.2192   0.4260   [1s]
+     40009     6.6407    2.24106    0.18757   -0.00086   0.27858     9.1543     9.7893     9.3471       nan    4.4729   0.4221   [2s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.20469; local slopes +0.19805 +0.20566 +0.20394 +0.20700
+    arcs wide: predicted +0.01575; local slopes +0.01571 +0.01565 +0.01573 +0.01585
+    corr wide: predicted -0.00009; local slopes -0.00009 -0.00009 -0.00009 -0.00009
+       narrow: predicted +0.00000; local slopes +0.00015 +0.00005 +0.00002 +0.00001
+   exact-lead: predicted +0.36369; local slopes +0.35645 +0.36427 +0.36279 +0.36608   (p = 1009 ... 40009)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.0451 (6/(pi(D+1)) = 0.0434), b = +0.3313, c = +0.768; exact - lead (log p)^2 = b log p + c with b = +0.36150 (B_D = +0.36369), c = +0.639
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 3.2509, RS (window 2^21) = 3.2409, difference +0.0100
+
+==================== D = 67: A = 24/(D+1) = 0.35294, 6/(pi(D+1)) = 0.02809, c_1 = 1.0926; r_D table to 8041809 in 27s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.149813
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.002541
+   b_3 (tail, height 1)                = +0.200776   [E_1(4 pi/D) = 1.27557]
+   b_4 (arcs on the tail)              = +0.010180
+   b_6 (correlations)                  = -0.000071
+   B_D = sum                           = +0.363238
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     1.5867    1.29650    0.09132   -0.00034   0.31769     3.1958     3.5119     3.2919    3.3424    2.6937   0.5837   [0s]
+      1009     2.6751    1.78897    0.12281   -0.00054   0.31996     4.7788     5.1985     4.9063    4.4343    3.5626   0.5151   [1s]
+      4001     3.4693    2.04668    0.13982   -0.00062   0.32016     5.8310     6.3065     5.9754       nan    4.0432   0.4875   [0s]
+     10007     4.0573    2.23143    0.15153   -0.00068   0.32020     6.6038     7.1176     6.7598       nan    4.3769   0.4752   [1s]
+     20011     4.5331    2.36319    0.16012   -0.00073   0.32021     7.2113     7.7533     7.3759       nan    4.6209   0.4666   [2s]
+     40009     5.0357    2.50338    0.16900   -0.00078   0.32022     7.8542     8.4253     8.0275       nan    4.8736   0.4599   [3s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.20078; local slopes +0.18707 +0.20153 +0.19012 +0.20235
+    arcs wide: predicted +0.01272; local slopes +0.01235 +0.01277 +0.01239 +0.01281
+    corr wide: predicted -0.00007; local slopes -0.00006 -0.00007 -0.00007 -0.00007
+       narrow: predicted +0.00000; local slopes +0.00015 +0.00004 +0.00002 +0.00001
+   exact-lead: predicted +0.36324; local slopes +0.34886 +0.36399 +0.35215 +0.36479   (p = 1009 ... 40009)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.0302 (6/(pi(D+1)) = 0.0281), b = +0.3187, c = +1.254; exact - lead (log p)^2 = b log p + c with b = +0.35636 (B_D = +0.36324), c = +1.094
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 3.2919, RS (window 2^21) = 3.3424, difference -0.0505
+
+==================== D = 163: A = 24/(D+1) = 0.14634, 6/(pi(D+1)) = 0.01165, c_1 = 0.8905; r_D table to 4893423 in 17s ====================
+closed form (0s):
+   b_1 (free part, Theorem 3.5)        = +0.142091
+   b_2 = 12 kappa/(pi(D+1)) (arcs)      = +0.001053
+   b_3 (tail, height 1)                = +0.171357   [E_1(4 pi/D) = 2.06114]
+   b_4 (arcs on the tail)              = +0.007173
+   b_6 (correlations)                  = -0.000046
+   B_D = sum                           = +0.321629
+exact norm by the scalloped Parseval formula, four Atkin-Lehner cusps (widths Dp, p, D, 1), k <= 3Dp:
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     1.3021    1.86179    0.09498   -0.00042   0.38473     3.5451     3.8682     3.6432    3.4870    3.3952   0.7357   [0s]
+      1009     1.9115    2.26527    0.11560   -0.00049   0.38644     4.5596     4.9505     4.6783    3.9687    4.1211   0.5958   [1s]
+      4001     2.3542    2.50009    0.12677   -0.00057   0.38659     5.2373     5.6648     5.3671       nan    4.5659   0.5505   [1s]
+     10007     2.6720    2.64869    0.13403   -0.00061   0.38662     5.7037     6.1551     5.8407       nan    4.8527   0.5268   [2s]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.17136; local slopes +0.17531 +0.17046 +0.16209
+    arcs wide: predicted +0.00823; local slopes +0.00896 +0.00811 +0.00792
+    corr wide: predicted -0.00005; local slopes -0.00003 -0.00006 -0.00004
+       narrow: predicted +0.00000; local slopes +0.00075 +0.00011 +0.00003
+   exact-lead: predicted +0.32163; local slopes +0.31543 +0.32286 +0.31281   (p = 101 ... 10007)
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.0073 (6/(pi(D+1)) = 0.0116), b = +0.3895, c = +1.637; exact - lead (log p)^2 = b log p + c with b = +0.31917 (B_D = +0.32163), c = +1.915
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 3.6432, RS (window 2^21) = 3.4870, difference +0.1562
+
+summary: D, 6/(pi(D+1)), b_1, b_2, b_3, b_4, b_6, B_D, fitted a (p >= 1009), fitted b, last local slope, p_max
+      3 0.47746 +0.71298 +0.04319 +0.05173 +0.01411 -0.00091 +0.82111 | 0.4776 +0.8203 +0.8210  400009
+      7 0.23873 +0.20702 +0.02160 +0.08684 +0.01369 -0.00026 +0.32888 | 0.2389 +0.3285 +0.3289  200003
+     11 0.15915 +0.13256 +0.01440 +0.13249 +0.01482 -0.00017 +0.29411 | 0.1593 +0.2935 +0.2943  200003
+     19 0.09549 +0.12142 +0.00864 +0.17814 +0.01439 -0.00013 +0.32246 | 0.0945 +0.3245 +0.3214  100003
+     43 0.04341 +0.14334 +0.00393 +0.20469 +0.01182 -0.00009 +0.36369 | 0.0451 +0.3615 +0.3661   40009
+     67 0.02809 +0.14981 +0.00254 +0.20078 +0.01018 -0.00007 +0.36324 | 0.0302 +0.3564 +0.3648   40009
+    163 0.01165 +0.14209 +0.00105 +0.17136 +0.00717 -0.00005 +0.32163 | 0.0073 +0.3192 +0.3128   10007
