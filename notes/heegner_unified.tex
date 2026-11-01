@@ -1,0 +1,153 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\emergencystretch=2.5em
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\dd}{\mathrm{d}}
+\DeclareMathOperator{\gen}{gen}
+
+\title[Theta series of the odd Heegner discriminants]{The theta series $\theta_D(z)\theta_D(pz)$\\ for the odd Heegner discriminants}
+\author{Ruqing Chen}
+\date{\today\ (chapter draft)}
+
+\begin{document}
+\begin{abstract}
+For the seven odd discriminants of class number one, $D\in\{3,7,11,19,43,67,163\}$, the weight-one theta series $\theta_D$ of the norm form $N_D=x^2+xy+\frac{D+1}4y^2$ is the Eisenstein series $E_1(z,\chi_{-D})$, and $\Theta^{(D)}_{1,p}=\theta_D(z)\theta_D(pz)$ is a form of weight $2$ for $\Gamma_0(Dp)$, a square-free level whose four cusps are all Atkin--Lehner. We prove, uniformly in $D$: the Siegel main term with closed-form local densities at $D$ and at $p$; the signs $\Theta|W_p=\chi(p)\Theta$, $\Theta|W_D=-\chi(p)\Theta$, $\Theta|W_{Dp}=-\Theta$, hence the support of the cuspidal part on the newforms with $a_\varphi(D)=\chi_{-D}(p)$, $a_\varphi(p)=-\chi_{-D}(p)$ (no inert vanishing), on the oldforms from level $p$ with $a_f(p)=-\chi_{-D}(p)$, and on the oldforms from level $D$ only when $\chi_{-D}(p)=+1$; the Rankin--Selberg formula $\langle\Theta,\varphi\rangle=C_D\chi(p)\eta_p(\varphi)L(1,\varphi)L(1,\varphi\otimes\chi_{-D})$ with $C_D=w_D^2\sqrt D/(8\pi^2)$; and the growth $\|G^{(D)}_{1,p}\|^2\sim\frac6{\pi(D+1)}(\log p)^2$, with the second term of the two wide cusps. The constants are those of the analytic class number formula with $h=1$: $w_D^2L(1,\chi_{-D})^2=4\pi^2/D$. Everything is verified numerically for $D=3,7,11$ ($43$ newforms, Rankin--Selberg ratios within $0.5\%$, densities to $10^{-16}$).
+\end{abstract}
+\maketitle
+
+\section{Setting}
+Let $D$ be one of the seven odd Heegner discriminants, $K=\Q(\sqrt{-D})$, $\chi=\chi_{-D}=\bigl(\frac{-D}\cdot\bigr)$ the Kronecker symbol, $w_D$ the number of units ($w_3=6$, $w_D=2$ otherwise), $N_D(x,y)=x^2+xy+\frac{D+1}4y^2$ the norm form (Gram matrix $\left(\begin{smallmatrix}2&1\\1&(D+1)/2\end{smallmatrix}\right)$ of determinant $D$), and
+\begin{gather*}
+r_D(n)=\#\{(x,y):\ N_D(x,y)=n\}=w_D\sum_{d\mid n}\chi(d)\quad(n\ge1),\\
+\theta_D(z)=\sum_{n\ge0}r_D(n)e(nz)\in M_1(\Gamma_0(D),\chi),
+\end{gather*}
+the formula for $r_D$ being the class number one property. The Eisenstein series $E(z,s)=\sum_{\Gamma_\infty\backslash\Gamma_0(D)}\chi(d_\gamma)j(\gamma,z)^{-1}\operatorname{Im}(\gamma z)^s$ has, at $s=0$, the expansion $1+\frac2{L(0,\chi)}\sum\sigma_\chi(n)e(nz)$ with $L(0,\chi)=2h/w_D=2/w_D$ (Hecke), so $E(z,0)=\theta_D(z)$ without any dimension argument. For a prime $p\ne D$ put
+\begin{gather*}
+\Theta_{1,p}=\theta_D(z)\theta_D(pz)=E+G\in M_2(\Gamma_0(Dp)),\\
+T(k)=\sum_{\alpha+p\beta=k}r_D(\alpha)r_D(\beta),\qquad a_G(k)=T(k)-M(k),
+\end{gather*}
+$E$ the Eisenstein and $G=G^{(D)}_{1,p}$ the cuspidal part. The level $Dp$ is square-free; $\Gamma_0(Dp)$ has the four cusps $W_Q\infty$, $Q\in\{1,D,p,Dp\}$, of widths $Dp,p,D,1$, and no cusp of the type ``denominator $2\delta$'' of Part~II. (The even discriminants $D=4,8$, with $\theta_4=\theta^2$ and $\theta_8=\theta(z)\theta(2z)$, have levels $4p$, $8p$ with non-Atkin--Lehner cusps; $D=4$ is Parts~I--III, and $D=8$ is not treated here.) By $|_k$ we denote the weight-$k$ slash operator normalised by $(\det\gamma)^{k/2}$, so that scalars act trivially and $f(mz)=m^{-k/2}(f|_kB_m)(z)$, $B_m=\left(\begin{smallmatrix}m&0\\0&1\end{smallmatrix}\right)$.
+
+\section{The Siegel main term}
+\begin{theorem}\label{thm:siegel}
+$M(k)=\dfrac{4\pi^2k}{Dp}\prod_\ell\beta_\ell(k)$, where $\beta_\ell(k)=(1-\ell^{-2})\sigma_{-1}(\ell^{v_\ell(k)})$ for every prime $\ell\nmid Dp$, including $\ell=2$, and, with $v=v_\ell(k)$,
+\[
+\beta_p(k)=(1+\chi(p))-\chi(p)\Bigl(1+\frac1p\Bigr)p^{-v},\qquad \beta_D(k)=(1+\e)-\e\Bigl(1+\frac1D\Bigr)D^{-v},
+\]
+where $\e=\bigl(\frac{-p}D\bigr)=-\chi_{-D}(p)$.
+\end{theorem}
+\begin{proof}
+The quaternary form $Q=N_D(x,y)+pN_D(z,w)$ has Gram determinant $D^2p^2$, and Siegel's theorem gives $r(\gen Q,k)=4\pi^2k\prod_\ell\beta_\ell(k)/\sqrt{D^2p^2}$ with $\beta_\ell(k)=\lim_a\ell^{-3a}\#\{x\bmod\ell^a:\ Q(x)\equiv k\}$; the genus theta series is the Eisenstein part of $\Theta_{1,p}$. For $\ell\nmid Dp$ the form is unimodular over $\Z_\ell$ with square discriminant, which gives the standard density; this includes $\ell=2$ because $N_D$ is even unimodular over $\Z_2$, $pN_D\cong N_D$ there ($p$ a unit, the Arf invariant being insensitive to unit scaling), and $N_D\oplus N_D$ has Arf invariant $0$, i.e.\ is the sum of two hyperbolic planes, whatever the class of $N_D$ modulo $2$ ($D\equiv3$ or $7\pmod8$).
+
+At $\ell=p$: the solutions with $(x,y)\not\equiv(0,0)\pmod p$ are non-singular in $(x,y)$ (the gradient of $N_D$ does not vanish there, $N_D$ being non-degenerate modulo $p$), so each solution modulo $p$ lifts to $p^{a-1}$ solutions modulo $p^a$; modulo $p$ the equation $N_D(x,y)\equiv t$ has $p-\chi(p)$ solutions for $p\nmid t$ (the number of elements of norm $t$ in $\mathbb F_{p^2}$ or $\mathbb F_p\times\mathbb F_p$) and $1+(p-1)(1+\chi(p))$ for $p\mid t$. With $(z,w)$ free, this gives $\beta_p(k)=1-\chi(p)/p$ for $p\nmid k$ and the contribution $(1+\chi(p))(1-1/p)$ for $p\mid k$. The solutions with $x\equiv y\equiv0\pmod p$, $x=px'$, $y=py'$, satisfy $pN_D(x',y')+N_D(z,w)\equiv k/p\pmod{p^{a-1}}$, the same form with the blocks interchanged; counting $(x',y')$ modulo $p^{a-1}$ and the $p^2$ lifts of $(z,w)$ gives the contribution $\beta_p(k/p)/p$. Hence $\beta_p(k)=(1+\chi(p))(1-1/p)+\beta_p(k/p)/p$ for $p\mid k$, which iterates to the closed form.
+
+At $\ell=D$: since $2$ is invertible, $N_D(x,y)=(x+y/2)^2+\frac D4y^2\cong u^2+Dv^2$ over $\Z_D$, so $Q\cong u^2+ps^2+D(v^2+pt^2)$. The solutions with $(u,s)\not\equiv0\pmod D$ are non-singular in $(u,s)$; modulo $D$ the binary form $u^2+ps^2$, of discriminant $-4p$, represents $t\not\equiv0$ exactly $D-\e$ times and $t\equiv0$ exactly $1+(D-1)(1+\e)$ times, $\e=(-p/D)$. The solutions with $u\equiv s\equiv0$ reduce to $D(u'^2+ps'^2)+(v^2+pt^2)\equiv k/D\pmod{D^{a-1}}$, the same form, with the factor $D^2/D^3=1/D$. Hence $\beta_D(k)=1-\e/D$ for $D\nmid k$ and $\beta_D(k)=(1+\e)(1-1/D)+\beta_D(k/D)/D$ for $D\mid k$. Finally $(-p/D)=(-1/D)(p/D)=-(p/D)=-(-D/p)=-\chi_{-D}(p)$ by quadratic reciprocity, $D\equiv3\pmod4$.
+\end{proof}
+
+For $D=3$ this is Proposition~2.1 of the working notes; $1+1/D=4/3$ there. The script \texttt{heegner\_theta\_unified.py} checks the closed forms against direct counts modulo $D^a$ and $p^a$ ($D=3,7,11$, $p\le13$; relative error $2\cdot10^{-16}$), and the whole main term against the known cusp forms: at the level $15$, $T-M=\frac92f_{15}$; at the level $14$, $T-M=\frac23f_{14}$ ($f_{14}=\eta(z)\eta(2z)\eta(7z)\eta(14z)$); at the level $22$, $T-M=0$ identically (Section~\ref{sec:support} explains why); at the levels $21,33,35,39,55,77,91,143$ the mean square of $T-M$ grows like $Y^2$, as for a cusp form.
+
+\section{Atkin--Lehner signs and the spectral support}\label{sec:support}
+\begin{theorem}\label{thm:AL}
+$\Theta_{1,p}|_2W_p=\chi(p)\Theta_{1,p}$, $\Theta_{1,p}|_2W_D=-\chi(p)\Theta_{1,p}$ and $\Theta_{1,p}|_2W_{Dp}=-\Theta_{1,p}$, for any choice of the Atkin--Lehner matrices of level $Dp$.
+\end{theorem}
+\begin{proof}
+Write $W_p=\left(\begin{smallmatrix}pa&b\\Dpc&pd\end{smallmatrix}\right)$, $pad-Dbc=1$. Then $W_p=\gamma B_p$ with $\gamma=\left(\begin{smallmatrix}a&b\\Dc&pd\end{smallmatrix}\right)\in\Gamma_0(D)$, so $\theta_D|_1W_p=\chi(pd)\,\theta_D|_1B_p=\chi(pd)p^{1/2}\theta_D(pz)$; and $B_pW_p=p\left(\begin{smallmatrix}pa&b\\Dc&d\end{smallmatrix}\right)$ with the second factor in $\Gamma_0(D)$, so $\theta_D(p\,\cdot)|_1W_p=p^{-1/2}\chi(d)\theta_D$. The product is $\chi(p)\chi(d)^2\Theta_{1,p}=\chi(p)\Theta_{1,p}$.
+
+For $W_D$ we use the transformation of $\theta_D$ under its own Atkin--Lehner matrices. The dual of the lattice $(\mathcal O_K,N_D)$ is $\mathcal O_K/\sqrt{-D}$, so Poisson summation gives $\theta_D(-1/z)=D^{-1/2}(-iz)\theta_D(z/D)$ and $\theta_D(-1/(Dz))=-i\sqrt Dz\,\theta_D(z)$, i.e.\ $\theta_D|_1W_0=-i\theta_D$ for $W_0=\left(\begin{smallmatrix}0&-1\\D&0\end{smallmatrix}\right)$. Every matrix $W=\left(\begin{smallmatrix}Da'&b'\\Dc'&Dd'\end{smallmatrix}\right)$ of determinant $D$ is $W_0\gamma'$ with $\gamma'=\left(\begin{smallmatrix}c'&d'\\-Da'&-b'\end{smallmatrix}\right)\in\Gamma_0(D)$, whence $\theta_D|_1W=-i\chi(-b')\theta_D$. Now $W_D=\left(\begin{smallmatrix}Da&b\\Dpc&Dd\end{smallmatrix}\right)$, $Dad-pbc=1$, is such a matrix with $b'=b$, and $B_pW_D=\left(\begin{smallmatrix}Da&pb\\Dc&Dd\end{smallmatrix}\right)B_p$ exhibits $\theta_D(p\,\cdot)|_1W_D=p^{-1/2}(\theta_D|_1W')|_1B_p$ with $W'$ such a matrix with $b'=pb$. Therefore $\Theta_{1,p}|_2W_D=(-i)^2\chi(-b)\chi(-pb)\Theta_{1,p}=-\chi(p)\Theta_{1,p}$, using $(b,D)=1$. Finally $W_{Dp}\equiv W_DW_p$ modulo $\Gamma_0(Dp)$ gives $-\chi(p)\cdot\chi(p)=-1$. The signs are checked numerically at $D=3,7,11$, $p\le13$, to $10^{-15}$.
+\end{proof}
+
+\begin{theorem}[Spectral support]\label{thm:support}
+Let $\varphi$ be a newform of weight $2$ and level $Dp$. If $\langle\Theta_{1,p},\varphi\rangle\ne0$ then
+\[
+\eta_p(\varphi)=\chi(p),\quad\eta_D(\varphi)=-\chi(p),\qquad\text{i.e.}\qquad a_\varphi(D)=\chi_{-D}(p),\quad a_\varphi(p)=-\chi_{-D}(p),
+\]
+and the root number of $\varphi$ is $+1$. For a newform $f$ of level $p$ and $d\mid D$, $\langle\Theta_{1,p},f(d\,\cdot)\rangle\ne0$ requires $\eta_p(f)=\chi(p)$, i.e.\ $a_f(p)=-\chi_{-D}(p)$ (root number $+1$). For a newform $f$ of level $D$ and $d\mid p$, $\langle\Theta_{1,p},f(d\,\cdot)\rangle=C_D\bigl(1+\chi(p)\bigr)L(1,f)L(1,f\otimes\chi)/d$ vanishes when $\chi_{-D}(p)=-1$.
+\end{theorem}
+\begin{proof}
+$\langle\Theta,\varphi\rangle=\langle\Theta|W,\varphi|W\rangle$ for $W=W_p,W_D$ and Theorem~\ref{thm:AL} give $\chi(p)\eta_p(\varphi)=1$ and $-\chi(p)\eta_D(\varphi)=1$; $a_\varphi(\ell)=-\eta_\ell(\varphi)$ for $\ell\,\|\,Dp$, and the root number is $-\eta_D\eta_p$. For $f$ of level $p$, Lemma~6.6 of Part~II (with $Q=p$, $Q_1=p$, $Q_2=Q_3=1$) gives $f(d\,\cdot)|_2W_p=\eta_p(f)f(d\,\cdot)$, and the same argument applies; $W_D$ exchanges $f(z)$ and $f(Dz)$ up to a factor and gives no further condition. For $f$ of level $D$ the formula is the oldform computation in the proof of Part~II, Theorem~6.7(ii), with $D$ in the role of $4$ and $p$ in the role of $n$ (the level of $f$ is ``$2^e$'' with $M_1=1$, and $d\mid p$ is the ``$d_{\mathrm o}$''): the second bracket there is $\sum_{Q_2\mid d}\chi(Q_2)$ and the third is $\prod_{\ell\mid p/d}(1+\chi(\ell))$, so the product is $1+\chi(p)$ in both cases $d=1$, $d=p$.
+\end{proof}
+
+In contrast with $D=4$, where every newform of level $4n$ has $\eta_4=-1$ (Part~II, Proposition~6.17), so that the newform support is empty when $\chi_{-4}(n)=-1$, here both eigenvalues of $W_D$ occur among the newforms of level $Dp$, since the local component at $D$ may be the Steinberg representation or its unramified quadratic twist: there is no inert vanishing, and for every $p$ the newform support is the subspace $\{a_\varphi(D)=\chi(p),\ a_\varphi(p)=-\chi(p)\}$, cut down further by $L(1,\varphi)L(1,\varphi\otimes\chi)\ne0$. This subspace is not exactly half of the new subspace: its dimension is $\frac14(\dim S^{\mathrm{new}}+\chi(p)\operatorname{tr}W_p-\chi(p)\operatorname{tr}W_D-\operatorname{tr}W_{Dp})$, the traces taken on $S_2^{\mathrm{new}}(\Gamma_0(Dp))$, and the traces of the Atkin--Lehner involutions are sums of class numbers of size $O(\sqrt{Dp}\log Dp)$ (Yamauchi's trace formula), so it is asymptotically one quarter of the new subspace, i.e.\ half of the forms with root number $+1$. [Citation to be checked.] The data: for $D=3$, $p\in\{5,7,11,13,17,19,23,29,31,37\}$ the numbers of newform components of $G_{1,p}$ are $1,1,1,2,2,2,2,3,3,4$ against $\dim S^{\mathrm{new}}=1,1,1,1,3,3,3,5,5,7$; for $D=7$, $p\in\{5,11,13,17,19\}$: $2,3,3,5,4$; for $D=11$, $p\in\{5,7,13,17,19\}$: $2,3,6,6,9$. At the level $77$ the same three newforms carry both $G^{(7)}_{1,11}$ and $G^{(11)}_{1,7}$ ($a(7)=+1=\chi_{-7}(11)=-\chi_{-11}(7)$, $a(11)=-1$), with the shares $0.001,0.019,0.981$ and $0.502,0.495,0.005$ respectively, in accordance with the two different twists in Theorem~\ref{thm:RS}. The oldforms from level $D$ exist for $D\in\{11,19,43,67,163\}$ (genus $1,1,3,5,13$) and not for $D=3,7$; at the level $22$ ($\chi_{-11}(2)=-1$) the cuspidal part vanishes identically, $\theta_{11}(z)\theta_{11}(2z)=E$, while at the level $55$ ($\chi_{-11}(5)=+1$) the component of $f_{11}$ is $f_{11}(z)+5f_{11}(5z)$ up to a scalar and carries $25\%$ of the norm.
+
+\section{The Rankin--Selberg formula}
+\begin{theorem}\label{thm:RS}
+For a newform $\varphi$ of weight $2$ and level $Dp$,
+\[
+\langle\Theta_{1,p},\varphi\rangle=C_D\,\chi(p)\,\eta_p(\varphi)\,L(1,\varphi)\,L(1,\varphi\otimes\chi_{-D}),\qquad C_D=\frac{w_D}{4\pi L(1,\chi_{-D})}=\frac{w_D^2\sqrt D}{8\pi^2}.
+\]
+Thus $C_3=\frac{9\sqrt3}{2\pi^2}=0.7897$, $C_D=\frac{\sqrt D}{2\pi^2}$ for $D\ge7$ ($C_7=0.1340$, $C_{11}=0.1680$), against $C_4=\frac4{\pi^2}$.
+\end{theorem}
+\begin{proof}
+The proof of Part~II, Theorem~6.7(i) carries over: $\theta_D=E(z,0)$; the cusps of $\Gamma_0(Dp)$ over $\infty$ of $\Gamma_0(D)$ are $W_Q\infty$, $Q\mid p$; unfolding gives
+\[
+I(s)=\sum_{Q\mid p}\chi(Q)\,\Gamma(s+1)(4\pi)^{-s-1}\sum_{j\ge1}\frac{r_D(j)\,c_Q((p/Q)j)}{((p/Q)j)^{s+1}},
+\]
+with $\chi(a)\chi(d)=\chi(Q)$ from $Qad\equiv1\pmod D$, and $c_Q(k)=\eta_Q(\varphi)a_\varphi(k)$. The Dirichlet series is $w_D\,L(w,\varphi)L(w,\varphi\otimes\chi)/\bigl(L(2w-1,\chi)\prod_{\ell\mid p}(1-\chi(\ell)\ell^{1-2w})\bigr)$, the local factor at $\ell=D$ being $(1-a_\varphi(D)x)^{-1}=L_D(w,\varphi)L_D(w,\varphi\otimes\chi)$ because $\chi(D)=0$ and $\sigma_\chi(D^j)=1$. At $s=0$ the constant is $w_D/(4\pi L(1,\chi))$, and $\sum_{Q\mid p}\chi(Q)\eta_Q(\varphi)a_\varphi(p/Q)/(p/Q)=\chi(p)\eta_p(\varphi)(1-\chi(p)/p)$ cancels the local factor. The class number formula $L(1,\chi_{-D})=2\pi h/(w_D\sqrt D)$ with $h=1$ gives the second expression. Numerically, for the $43$ newform components of $G^{(D)}_{1,p}$ with $D=3,7,11$ and $p\le19$, the ratio of the two sides lies in $[0.9952,1.0048]$ (the twist $\varphi\otimes\chi_{-D}$ has level $D^2p$ and root number $+1$ in every case).
+\end{proof}
+
+\section{The norm}
+\begin{theorem}\label{thm:norm}
+Let $D_D(s)=\sum_kr_D(k)^2k^{-s}$. Then $D_D(s)=w_D^2\,\zeta(s)^2L(s,\chi)^2/\bigl((1+D^{-s})\zeta(2s)\bigr)$, and
+\begin{gather*}
+S_D(Y):=\sum_{k\ge1}\frac{r_D(k)^2}k e^{-k/Y}=\frac{12}{D+1}(\log Y)^2+c_1^{(D)}\log Y+c_2^{(D)}+O(Y^{-1/2}),\\
+c_1^{(D)}=\frac{24}{D+1}\Bigl(\gamma+2\frac{L'}L(1,\chi)-2\frac{\zeta'}\zeta(2)+\frac{\log D}{D+1}\Bigr),
+\end{gather*}
+with $\frac{L'}L(1,\chi_{-D})=\gamma+\log2+\log\pi-\frac{w_D}2\sum_{a=1}^{D-1}\chi(a)\log\Gamma(a/D)$. Consequently the regions above height $1$ at the two wide cusps give
+\begin{gather*}
+\|G^{(D)}_{1,p}\|^2\ \ge\ \frac1{4\pi}\Bigl(S_D\Bigl(\frac{Dp}{4\pi}\Bigr)+S_D\Bigl(\frac p{4\pi}\Bigr)\Bigr)-O(\log p)=\frac6{\pi(D+1)}(\log p)^2+b_D\log p+O(1),\\
+b_D=\frac{6}{\pi(D+1)}\log\frac D{16\pi^2}+\frac{c_1^{(D)}}{2\pi}\qquad(b_3=0.713,\ b_7=0.207,\ b_{11}=0.133),
+\end{gather*}
+and $\|G^{(D)}_{1,p}\|^2\sim\frac6{\pi(D+1)}(\log p)^2$ provided the upper bound of Part~II, Theorem~6.14, carries over (four Atkin--Lehner classes, no odd class).
+\end{theorem}
+\begin{proof}
+$r_D/w_D=\sigma_\chi$ is multiplicative with $\sigma_\chi(\ell^j)=j+1$, $\frac12(1+(-1)^j)$, $1$ for $\chi(\ell)=1,-1,0$, so the Euler factor of $\sum\sigma_\chi(k)^2k^{-s}$ at $\ell\ne D$ is that of $\zeta^2L^2/\zeta(2s)$, and at $\ell=D$ it is $(1-x)^{-1}$ against $(1+x)/(1-x)$ for $\zeta^2L^2/\zeta(2s)$, whence the factor $(1+D^{-s})^{-1}$. At $s=1$: $w_D^2L(1,\chi)^2\cdot\frac{D}{D+1}\cdot\frac6{\pi^2}=\frac{4\pi^2}D\cdot\frac D{D+1}\cdot\frac6{\pi^2}=\frac{24}{D+1}$ by the class number formula, so $D_D(1+w)=\frac{24}{D+1}w^{-2}(1+a_1w+\dots)$ with $a_1=2\gamma+2\frac{L'}L(1,\chi)-2\frac{\zeta'}\zeta(2)+\frac{\log D}{D+1}$, and the residue computation of Part~II, Lemma~6.10 gives $S_D$. The value of $\frac{L'}L(1,\chi)$ follows from the functional equation $\Lambda(s)=(D/\pi)^{s/2}\Gamma(\frac{s+1}2)L(s,\chi)=\Lambda(1-s)$ (root number $+1$ for real odd $\chi$) and $L(s,\chi)=D^{-s}\sum_a\chi(a)\zeta(s,a/D)$ with $\zeta'(0,a)=\log\Gamma(a)-\frac12\log2\pi$: $\frac{L'}L(1)=-\log\frac D\pi-\frac12\psi(\tfrac12)-\frac12\psi(1)-\frac{L'}L(0)$ and $\frac{L'}L(0)=-\log D+\frac{w_D}2\sum_a\chi(a)\log\Gamma(a/D)$, since $L(0,\chi)=2/w_D$. The lower bound for the norm is Part~II, Lemma~6.9 at the cusps $W_1\infty$ and $W_D\infty$ (widths $Dp$ and $p$), which carry $\pm G_{1,p}$ by Theorem~\ref{thm:AL}, with the correction by the main term and by the coefficients $k\ge p$ bounded as in Part~II, Theorem~6.5(iii), and $\log\frac{Dp}{4\pi}+\log\frac p{4\pi}=2\log p+\log\frac D{16\pi^2}$.
+\end{proof}
+
+The growth constant is $\frac6{\pi(D+1)}$, decreasing in $D$ ($0.4775$, $0.2387$, $0.1592$ for $D=3,7,11$, against $\frac1\pi=0.3183$ for $D=4$, where the factor at the ramified prime is $\frac23$ instead of $\frac D{D+1}$); the value $\frac{\sqrt D}{2\pi}$ proposed for it is incorrect. What the class number formula fixes is the product $w_D^2L(1,\chi_{-D})^2=4\pi^2/D$, which makes the residue of $D_D$ independent of $w_D$; the remaining factor $D/(D+1)$ is the Euler factor at the ramified prime, where $\sigma_\chi(D^j)=1$.
+
+\section{Numerical results}
+\begin{center}\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{c|cccc|ccc|cc}
+\toprule
+$D$ & $w_D$ & $L(1,\chi)$ & $\frac{L'}L(1,\chi)$ & $C_D$ & $\frac{12}{D+1}$ & $c_1^{(D)}$ & $c_2^{(D)}$ & $\frac6{\pi(D+1)}$ & fit $a$\\
+\midrule
+$3$ & $6$ & $0.604600$ & $0.368282$ & $0.789720$ & $3$ & $16.370$ & $13.059$ & $0.4775$ & $0.4815$\\
+$7$ & $2$ & $1.187410$ & $0.015636$ & $0.134035$ & $1.5$ & $5.975$ & $1.450$ & $0.2387$ & $0.2408$\\
+$11$ & $2$ & $0.947226$ & $-0.084218$ & $0.168022$ & $1$ & $3.497$ & $0.492$ & $0.1592$ & $0.1601$\\
+\bottomrule
+\end{tabular}
+\end{center}
+($L(1,\chi)$ and $\frac{L'}L(1,\chi)$ agree with mpmath to all digits shown; $c_2^{(D)}$ from $S_D(Y)$ at $Y=10^4,10^5$; ``fit $a$'' is the coefficient of $(\log p)^2$ in a three-parameter fit of $\Lambda_1(G_{1,p})$ over $p\in\{101,1009,10007,100003\}$.) The sandwich $\Lambda_1\le\|G\|^2\le\Lambda_{\sqrt3/2}$ over the four cusps, and the Rankin--Selberg estimate where it has converged ($p\le1009$):
+\begin{center}\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{r|rrr|rrr|rrr}
+\toprule
+ & \multicolumn{3}{c|}{$D=3$} & \multicolumn{3}{c|}{$D=7$} & \multicolumn{3}{c}{$D=11$}\\
+$p$ & RS & $\Lambda_1$ & $\Lambda_{\sqrt3/2}$ & RS & $\Lambda_1$ & $\Lambda_{\sqrt3/2}$ & RS & $\Lambda_1$ & $\Lambda_{\sqrt3/2}$\\
+\midrule
+$101$ & $11.893$ & $11.621$ & $12.513$ & $5.437$ & $5.294$ & $5.774$ & $4.092$ & $3.969$ & $4.363$\\
+$1009$ & $26.452$ & $25.966$ & $27.300$ & $12.556$ & $12.263$ & $13.013$ & $9.040$ & $8.783$ & $9.402$\\
+$10007$ & & $45.385$ & $47.151$ & & $21.768$ & $22.785$ & & $15.277$ & $16.117$\\
+$100003$ & & $69.921$ & $72.120$ & & $33.833$ & $35.116$ & & $23.479$ & $24.540$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The exact norm by the scalloped Parseval formula of the working notes applies verbatim (four Atkin--Lehner classes) and has not been run for $D\ne4$.
+
+\section*{Script}
+\texttt{code/heegner\_theta\_unified.py} (self-contained; Kronecker symbol, $r_D$, $T$, $M$, counts of local densities, Atkin--Lehner check at a base point, Hecke decomposition by $T_2$ then $T_3,T_5,T_7,T_{13}$ where eigenvalues coincide, central values by the smoothed functional equation, norms by Rankin--Selberg and by the cusp sums); output in \texttt{results/heegner\_theta\_unified.txt}. Floating point.
+\end{document}

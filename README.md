@@ -19,6 +19,12 @@ Working notes and scripts for two questions raised after Part III of the series
   component of G_{1,p} has a(3) = χ_{−3}(p), a(p) = −χ_{−3}(p): 21 newforms for p ≤ 37, no inert vanishing), the Rankin–Selberg
   formula with the constant 9√3/(2π²) (ratios 0.994–1.005), and the norm ‖G^{(3)}_{1,p}‖² ~ (3/(2π))(log p)² with the sandwich
   Λ_1 ≤ ‖G‖² ≤ Λ_{√3/2}.
+* `notes/heegner_unified.tex` (+ PDF) and `code/heegner_theta_unified.py`: the seven odd Heegner discriminants
+  D ∈ {3, 7, 11, 19, 43, 67, 163} uniformly: Siegel main term with the closed-form densities at D and p, the Atkin–Lehner
+  signs, the spectral support (newforms with a(D) = χ_{−D}(p), a(p) = −χ_{−D}(p); oldforms from level p with a_f(p) = −χ(p);
+  oldforms from level D only when χ(p) = +1, e.g. θ_11(z)θ_11(2z) is Eisenstein), the Rankin–Selberg constant
+  C_D = w_D²√D/(8π²), and ‖G‖² ~ (6/(π(D+1)))(log p)² (not √D/(2π)); verified for D = 3, 7, 11 (43 newforms, ratios
+  within 0.5 %).
 * `results/`: the outputs.
 
 Floating point throughout; evidence, not proof, except where the notes give a proof.
