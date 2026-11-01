@@ -1,0 +1,79 @@
+==================== D = 67: N_D = x^2 + xy + 17 y^2, w_D = 2, L(1,chi) = 0.383807, C_D = w^2 sqrt D/(8 pi^2) = 0.414675 ====================
+1. local densities (closed forms against counts modulo ell^a):
+   p =  2, ell = 67, a = 2: max relative error 0.0e+00
+   p =  2, ell =  2, a = 14: max relative error 0.0e+00
+   p =  5, ell = 67, a = 2: max relative error 0.0e+00
+   p =  5, ell =  5, a = 6: max relative error 0.0e+00
+   p =  7, ell = 67, a = 2: max relative error 0.0e+00
+   p =  7, ell =  7, a = 5: max relative error 1.1e-16
+   p = 11, ell = 67, a = 2: max relative error 0.0e+00
+   p = 11, ell = 11, a = 4: max relative error 1.1e-16
+   p = 13, ell = 67, a = 2: max relative error 0.0e+00
+   p = 13, ell = 13, a = 4: max relative error 0.0e+00
+   level 134: sum_(k<=y) a(k)^2/y^2 at y = X/4, X/2, X: 0.5730 0.5864 0.5776 (cusp form)
+   level 201: sum_(k<=y) a(k)^2/y^2 at y = X/4, X/2, X: 0.5134 0.5188 0.5148 (cusp form)
+   level 335: sum_(k<=y) a(k)^2/y^2 at y = X/4, X/2, X: 0.3254 0.3194 0.3274 (cusp form)
+   level 469: sum_(k<=y) a(k)^2/y^2 at y = X/4, X/2, X: 0.2822 0.2691 0.2606 (cusp form)
+   level 737: sum_(k<=y) a(k)^2/y^2 at y = X/4, X/2, X: 0.1889 0.1932 0.1907 (cusp form)
+   level 871: sum_(k<=y) a(k)^2/y^2 at y = X/4, X/2, X: 0.1796 0.1895 0.1919 (cusp form)
+2. Atkin-Lehner: (Theta|W_Q)(z)/Theta(z), predictions W_p: chi(p), W_D: -chi(p), W_Dp: -1
+   p =  2 (chi(p) = -1): W_2: -1.000000 (pred -1), W_67: +1.000000 (pred +1), W_134: -1.000000 (pred -1)
+   p =  5 (chi(p) = -1): W_5: -1.000000 (pred -1), W_67: +1.000000 (pred +1), W_335: -1.000000 (pred -1)
+   p =  7 (chi(p) = -1): W_7: -1.000000 (pred -1), W_67: +1.000000 (pred +1), W_469: -1.000000 (pred -1)
+   p = 11 (chi(p) = -1): W_11: -1.000000 (pred -1), W_67: +1.000000 (pred +1), W_737: -1.000000 (pred -1)
+   p = 13 (chi(p) = -1): W_13: -1.000000 (pred -1), W_67: +1.000000 (pred +1), W_871: -1.000000 (pred -1)
+3. Hecke decomposition of G_{1,p}; newform of level Dp iff a(D) = +-1, a(D^2) = a(D)^2, a(p) = +-1; prediction: a(D) = chi(p), a(p) = -chi(p); Rankin-Selberg ratio against C_D chi(p) eta_p L L
+   p =  5 (chi(p) = -1), level 335, dim S_2 = 33: ||G||^2 (RS) = 1.7553, 10 eigencomponents
+      a(2) = -2.7748, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.255  [mixture]  <- prediction OK
+      a(2) = -2.4172, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.000  [mixture]  <- prediction OK
+      a(2) = -1.7980, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.237  [mixture]  <- prediction OK
+      a(2) = -1.1510, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.031  [mixture]  <- prediction OK
+      a(2) = -0.8463, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.083  [mixture]  <- prediction OK
+      a(2) = +0.4885, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.184  [mixture]  <- prediction OK
+      a(2) = +1.2382, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.068  [mixture]  <- prediction OK
+      a(2) = +1.7979, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.090  [mixture]  <- prediction OK
+      a(2) = +2.1404, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.067  [mixture]  <- prediction OK
+      a(2) = +2.6857, a(67) = -1.0000, a(5) = +1.0000, a(5) = +1.0000: NEW level 335, share 0.000  [mixture]  <- prediction OK
+      predictions hold for all newform components: True; shares sum to 1.016   [2s]
+   p =  7 (chi(p) = -1), level 469, dim S_2 = 43: ||G||^2 (RS) = 1.9455, 11 eigencomponents
+      a(2) = -2.4489, a(67) = -1.0000, a(5) = +1.9138, a(7) = +1.0000: NEW level 469, share 0.195  <- prediction OK
+      a(2) = -1.9853, a(67) = -1.0000, a(5) = +1.2251, a(7) = +1.0000: NEW level 469, share 0.018  <- prediction OK
+      a(2) = -1.5616, a(67) = -1.0000, a(5) = -3.5616, a(7) = +1.0000: NEW level 469, share 0.258  <- prediction OK
+      a(2) = -0.7354, a(67) = -1.0000, a(5) = +3.1335, a(7) = +1.0000: NEW level 469, share 0.041  <- prediction OK
+      a(2) = -0.3171, a(67) = -1.0000, a(5) = +1.1495, a(7) = +1.0000: NEW level 469, share 0.145  <- prediction OK
+      a(2) = +1.0000, a(67) = -1.0000, a(5) = -2.5616, a(7) = +1.0000: NEW level 469, share nan  <- prediction OK
+      a(2) = +1.0000, a(67) = -1.0000, a(5) = +1.5616, a(7) = +1.0000: NEW level 469, share nan  <- prediction OK
+      a(2) = +1.7772, a(67) = -1.0000, a(5) = -3.0335, a(7) = +1.0000: NEW level 469, share 0.000  [mixture]  <- prediction OK
+      a(2) = +2.0617, a(67) = -1.0000, a(5) = +3.5622, a(7) = +1.0000: NEW level 469, share 0.000  [mixture]  <- prediction OK
+      a(2) = +2.5616, a(67) = -1.0000, a(5) = +0.5616, a(7) = +1.0000: NEW level 469, share 0.089  <- prediction OK
+      a(2) = +2.6478, a(67) = -1.0000, a(5) = -1.9506, a(7) = +1.0000: NEW level 469, share 0.184  <- prediction OK
+      predictions hold for all newform components: True; shares sum to 0.930   [2s]
+   p = 11 (chi(p) = -1), level 737, dim S_2 = 67: ||G||^2 (RS) = 2.0429, 1 eigencomponents
+      a(2) = -0.0539, a(67) = +2.6647, a(5) = -0.1078, a(11) = +1.0000: old from level 11 (f(z), f(67z)), share 1.000  [mixture]  <- a_f(p) = -chi(p): OK
+      predictions hold for all newform components: True; shares sum to 1.000   [1s]
+   p = 13 (chi(p) = -1), level 871, dim S_2 = 77: ||G||^2 (RS) = 2.3356, 1 eigencomponents
+      a(2) = -0.0448, a(67) = -1.0000, a(5) = -0.0896, a(13) = +1.0000: NEW level 871, share 1.000  [mixture]  <- prediction OK
+      predictions hold for all newform components: True; shares sum to 1.000   [1s]
+   p = 17 (chi(p) = +1), level 1139, dim S_2 = 101: ||G||^2 (RS) = 2.3219, 1 eigencomponents
+      a(2) = -0.0306, a(67) = +1.0000, a(5) = -0.0612, a(17) = +2.6735: old from level 67 (f(z), f(17z)), share 1.000  [mixture]  <- needs chi(p) = +1: OK
+      predictions hold for all newform components: True; shares sum to 1.000   [1s]
+   p = 19 (chi(p) = +1), level 1273, dim S_2 = 111: ||G||^2 (RS) = 2.4631, 1 eigencomponents
+      a(2) = -0.0275, a(67) = +1.0000, a(5) = -0.0550, a(19) = +2.6697: old from level 67 (f(z), f(19z)), share 1.000  [mixture]  <- needs chi(p) = +1: OK
+      predictions hold for all newform components: True; shares sum to 1.000   [1s]
+4. norm: L'/L(1,chi_-D) = 0.658364; S_D(Y) = 0.1765 (log Y)^2 + 1.0926 log Y + c_2
+   (mpmath check skipped for D > 19; the closed form is verified at D = 3, 7, 11, 19)
+   S_D(1e+03) = 17.4753, minus 0.1765 (log Y)^2 - c_1 log Y = 1.5072
+   S_D(1e+04) = 26.5380, minus 0.1765 (log Y)^2 - c_1 log Y = 1.5047
+   S_D(1e+05) = 37.4744, minus 0.1765 (log Y)^2 - c_1 log Y = 1.5046
+   two wide cusps (widths Dp, p): (1/4pi)(S_D(Dp/4pi) + S_D(p/4pi)) = 0.0281 (log p)^2 + 0.1498 log p + O(1)   [6/(pi(D+1)); sqrt D/(2 pi) would be 1.3027]
+          p  RS (2^21)   Lambda_1   Lambda_h  lead log^2 Lam_1/log^2  RS/log^2
+          5     1.7750     1.5985     1.7548      0.0728      0.6171    0.6853
+          7     1.9060     1.7066     1.8656      0.1064      0.4507    0.5034
+         11     2.0043     1.7864     1.9508      0.1615      0.3107    0.3486
+         13     2.3197     2.0891     2.2596      0.1848      0.3175    0.3526
+        101     3.3424     3.0050     3.2059      0.5982      0.1411    0.1569
+       1009     4.4343     4.5311     4.7979      1.3437      0.0947    0.0927
+      10007     4.7464     6.3038     6.6309      2.3829      0.0743    0.0559
+     100003        nan     8.3926     8.7805      3.7228      0.0633       nan
+   fit Lambda_1 = a (log p)^2 + b log p + c over p >= 100: a = 0.0266 (6/(pi(D+1)) = 0.0281), b = +0.3515 (wide cusps: +0.1498), c = +0.820
+

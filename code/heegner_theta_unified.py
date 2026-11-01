@@ -437,15 +437,18 @@ def main():
         lead = 12 / (D + 1)
         c1 = 2 * lead * (a1 - EG)
         say(f"4. norm: L'/L(1,chi_-D) = {LpL:.6f}; S_D(Y) = {lead:.4f} (log Y)^2 + {c1:.4f} log Y + c_2")
-        try:
-            import mpmath as mp
-            mp.mp.dps = 20
-            chis = [H.chi(n) for n in range(D)]
-            Lp = mp.diff(lambda s: mp.dirichlet(s, chis), 1)
-            L1v = mp.dirichlet(1, chis)
-            say(f"   mpmath: L'/L(1,chi) = {float(Lp / L1v):.6f}, L(1,chi) = {float(L1v):.6f} (2 pi/(w sqrt D) = {H.L1:.6f})")
-        except Exception as exc:                                         # noqa: BLE001
-            say(f"   (mpmath check skipped: {exc})")
+        if D <= 19:          # the mpmath check of the closed form (the runs for D = 43 were stopped by the system at this point)
+            try:
+                import mpmath as mp
+                mp.mp.dps = 20
+                chis = [H.chi(n) for n in range(D)]
+                Lp = mp.diff(lambda s: mp.dirichlet(s, chis), 1)
+                L1v = mp.dirichlet(1, chis)
+                say(f"   mpmath: L'/L(1,chi) = {float(Lp / L1v):.6f}, L(1,chi) = {float(L1v):.6f} (2 pi/(w sqrt D) = {H.L1:.6f})")
+            except Exception as exc:                                     # noqa: BLE001
+                say(f"   (mpmath check skipped: {exc})")
+        else:
+            say("   (mpmath check skipped for D > 19; the closed form is verified at D = 3, 7, 11, 19)")
         Xs = 2 ** 21
         rs = H.r_table(Xs)
         k = np.arange(Xs + 1, dtype=float)
