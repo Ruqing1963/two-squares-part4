@@ -1,0 +1,11 @@
+Kloosterman arguments: S(a,b;c) depends only on ab mod c.  Random N, m, h; moduli c odd and even.
+
+   c =  49, N =   94477, m = 13, |h|^2 =  90: products mod c: N mbar inv16 |h|^2 =  13, inv(16m) N |h|^2 =  13, 16 N m |h|^2 =  10; S = -0.0000, -0.0000, -0.0000
+   c =  49, N =   94477, m = 13, |h|_3^2 = 117: F_c(N mbar; inv3 h) = +2.2344, chi(c) S(inv(27m) N, |h|_3^2; c) = +2.2344; product N mbar inv3 |inv3 h|_3^2 =  18 = inv(27m) N |h|_3^2 =  18
+   c =  45, N =  274433, m = 29, |h|^2 =  82: products mod c: N mbar inv16 |h|^2 =  19, inv(16m) N |h|^2 =  19, 16 N m |h|^2 =  34; S = -14.7609, -14.7609, +2.7277
+   c =  58, N =  909453, m = 41, |h|_3^2 =  57: F_c(N mbar; inv3 h) = +2.5604, chi(c) S(inv(27m) N, |h|_3^2; c) = +2.5604; product N mbar inv3 |inv3 h|_3^2 =   9 = inv(27m) N |h|_3^2 =   9
+
+   G1: S(N mbar, inv16 |h|^2; c) = S(inv(16m) N, |h|^2; c): 20/20
+   G2: ... != S(16N, m|h|^2; c): 16/20
+   E1: S(N mbar, inv3 |inv3 h|_3^2; c) = S(inv(27m) N, |h|_3^2; c): 25/25
+   E2: F_c(N mbar; inv3 h) = chi(c) S(inv(27m) N, |h|_3^2; c) for (c,h) = 1: 17/17

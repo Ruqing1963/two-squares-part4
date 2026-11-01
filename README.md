@@ -63,6 +63,7 @@ python heegner_theta_unified.py 19               # one D at a time for the large
 python heegner_closed_form_B.py                  # Theorem 3.8: B_D in closed form against the exact norm, all seven D; ~10 min, ~1 GB
 python prime_discriminant_norm.py                # the first D = 3 exploration (notes/part4_explorations.tex)
 python eisenstein_circle_check.py 40             # Lemma 5.1; ~15 min (pure Python)
+python kloosterman_argument_audit.py             # Sections 1.3 and 5.3: the Kloosterman arguments, products modulo c; seconds
 python plot_scalloped_anatomy.py                 # Figure 1
 python plot_heegner_volume_scaling.py            # Figure 2
 python plot_level77_duality.py                   # Figure 3
@@ -70,7 +71,7 @@ python plot_level77_duality.py                   # Figure 3
 
 Outputs: `results/subleading_log_anatomy.txt`, `results/closed_form_B.txt`, `results/heegner_theta_unified_{3_7_11,19,43,67,163}.txt`,
 `results/heegner_closed_form_B.txt`,
-`results/prime_discriminant_norm.txt`, `results/eisenstein_circle_check.txt`; figures in `figures/`. The paper compiles with
+`results/prime_discriminant_norm.txt`, `results/eisenstein_circle_check.txt`, `results/kloosterman_argument_audit.txt`; figures in `figures/`. The paper compiles with
 `pdflatex` (run twice) from `paper/`.
 
 Floating point throughout; evidence, not proof. The theorems do not depend on the computations.
