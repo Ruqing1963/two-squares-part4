@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper."
+title: "Sums of two squares and Heegner norms with few prime factors, IV: the scalloped Parseval formula, the Heegner classification, and Eisenstein dispersion"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Ruqing
+    affiliation: "GUT Geoservice Inc., Montreal, Canada"
+    email: ruqing@hotmail.com
+doi: 10.5281/zenodo.23866356
+date-released: 2026-11-01
+version: "1.0"
+url: "https://doi.org/10.5281/zenodo.23866356"
+license: MIT
+repository-code: "https://github.com/Ruqing1963/two-squares-part4"
+keywords:
+  - sums of two squares
+  - almost primes
+  - sieve methods
+  - theta series
+  - Petersson norm
+  - Parseval formula
+  - Atkin-Lehner involutions
+  - Heegner discriminants
+  - class number one
+  - Rankin-Selberg method
+  - Kloosterman sums
+  - Eisenstein integers
+  - dispersion method
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Chen
+      given-names: Ruqing
+  title: "Sums of two squares and Heegner norms with few prime factors, IV: the scalloped Parseval formula, the Heegner classification, and Eisenstein dispersion"
+  year: 2026
+  notes: "preprint"

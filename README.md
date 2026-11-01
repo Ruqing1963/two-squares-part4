@@ -1,5 +1,7 @@
 # Sums of two squares and Heegner norms with few prime factors, IV: the scalloped Parseval formula, the Heegner classification, and Eisenstein dispersion
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23866356.svg)](https://doi.org/10.5281/zenodo.23866356)
+
 Part IV of the series after Part I ([two-squares-theta-level](https://github.com/Ruqing1963/two-squares-theta-level),
 DOI 10.5281/zenodo.23826176), Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
 version 3, DOI 10.5281/zenodo.23866064) and Part III ([two-squares-short-intervals](https://github.com/Ruqing1963/two-squares-short-intervals),
