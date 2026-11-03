@@ -37,7 +37,9 @@ DOI 10.5281/zenodo.23826860). The repository holds
    Rankin–Selberg ratios in [0.9936, 1.0048]; the exact scalloped norm for all seven odd D with coefficients k ≤ 3Dp
    (`heegner_closed_form_B.py`): the local slopes of ‖G‖² − (6/(π(D+1)))(log p)² agree with B_D to 10⁻³ (D ≤ 11) or
    10⁻² (D ≥ 19, shorter range of p), and with B_D fixed the fitted leading coefficients are 0.4774, 0.2387, 0.1591,
-   0.0956, 0.0433, 0.0277, 0.0115 against 0.4775, 0.2387, 0.1592, 0.0955, 0.0434, 0.0281, 0.0116. (The earlier norm scans
+   0.0956, 0.0433, 0.0277, 0.0115 against 0.4775, 0.2387, 0.1592, 0.0955, 0.0434, 0.0281, 0.0116. The O(1) term depends on
+   χ_{−D}(p); grouping the primes by that sign (`chi_grouped_slopes.py`, Table 5) brings the local slopes within 0.0012 of
+   B_D for D ≤ 43, while for D = 67 both groups give 0.358–0.359 against 0.3632 over a range too short to decide. (The earlier norm scans
    of `heegner_theta_unified.py` truncate at k ≤ 12p, which is not enough at the cusp of width Dp for D ≥ 43; their Λ values
    for these D are superseded.) The three newforms of level 77 carry both G^{(7)}_{1,11} and G^{(11)}_{1,7} with opposite
    shares (Figure 3).
@@ -67,6 +69,7 @@ python heegner_closed_form_B.py                  # Theorem 3.8: B_D in closed fo
 python prime_discriminant_norm.py                # the first D = 3 exploration (notes/part4_explorations.tex)
 python eisenstein_circle_check.py 40             # Lemma 5.1; ~15 min (pure Python)
 python kloosterman_argument_audit.py             # Sections 1.3 and 5.3: the Kloosterman arguments, products modulo c; seconds
+python chi_grouped_slopes.py                     # Section 4, Table 5: local slopes grouped by the sign of chi_{-D}(p); seconds
 python plot_scalloped_anatomy.py                 # Figure 1
 python plot_heegner_volume_scaling.py            # Figure 2
 python plot_level77_duality.py                   # Figure 3
@@ -74,7 +77,8 @@ python plot_level77_duality.py                   # Figure 3
 
 Outputs: `results/subleading_log_anatomy.txt`, `results/closed_form_B.txt`, `results/heegner_theta_unified_{3_7_11,19,43,67,163}.txt`,
 `results/heegner_closed_form_B.txt`,
-`results/prime_discriminant_norm.txt`, `results/eisenstein_circle_check.txt`, `results/kloosterman_argument_audit.txt`; figures in `figures/`. The paper compiles with
+`results/prime_discriminant_norm.txt`, `results/eisenstein_circle_check.txt`, `results/kloosterman_argument_audit.txt`,
+`results/chi_grouped_slopes.txt`; figures in `figures/`. The paper compiles with
 `pdflatex` (run twice) from `paper/`.
 
 Floating point throughout; evidence, not proof. The theorems do not depend on the computations.
