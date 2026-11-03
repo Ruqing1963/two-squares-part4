@@ -1,0 +1,49 @@
+r_8 and sigma tables to 4800072 in 17s
+L'/L(1, chi_-8) = -0.020711, c_1^(8) = 3.8135 (ramified factor (1 + 2^-s)^-1: log 2/3 in a_1)
+closed form, D = 8 (A = 2, lead = 1/(2 pi) = 0.15915):
+   b_1 (free part, widths 8p, p)           = +0.132245
+   b_2 = A kappa/(2 pi) (arcs)              = +0.014397
+   b_3 (tail, height 1)                    = +0.068581   [E_1(pi/2) = 0.09008]
+   b_4 (arcs on the tail)                  = +0.009162
+   b_6 (correlations, AL cusps)            = -0.000165
+   b_5^(2) (cusp 1/2, height 1 + arcs)     = +0.008398   [height 1 alone +0.006963]
+   b_6^(2) (cusp 1/2, correlations)        = +0.000000
+   b_5^(4) (cusp 1/4, height 1 + arcs)     = +0.000237   [height 1 alone +0.000166]
+   b_6^(4) (cusp 1/4, correlations)        = -0.000001
+   B_8 = sum                               = +0.232854
+exact norm over the eight cusps of Gamma_0(8p), t = k/Q <= 3 at every cusp:
+         p    C1 free    C2 tail    arcs AL    corr AL   cusp2 h1  cusp2 arc  cusp2 cor   cusp4 h1  cusp4 arc  cusp4 cor    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     3.8006   -0.45747    0.08161   -0.00029    0.07753    0.00844   -0.00000    0.01703    0.00183   -0.00002   0.08004     3.5112     3.8339     3.6093    3.6098    0.2194   0.0475   [1s; Eisenstein residual 1e-15; AL |b|Q vs |a|: 2e-13]
+      1009     8.3191   -0.32765    0.13673   -0.00067    0.09779    0.01194   -0.00001    0.01950    0.00209   -0.00002   0.08348     8.1855     8.7023     8.3423    8.3029    0.7282   0.1053   [1s; Eisenstein residual 2e-16; AL |b|Q vs |a|: 4e-13]
+      4001    11.8355   -0.23468    0.16928   -0.00090    0.10754    0.01393   -0.00001    0.01978    0.00219   -0.00002   0.08377    11.8051    12.4356    11.9964       nan    1.0473   0.1263   [0s; Eisenstein residual 7e-16; AL |b|Q vs |a|: 9e-13]
+     10007    14.5107   -0.17146    0.19086   -0.00105    0.11389    0.01524   -0.00001    0.01991    0.00226   -0.00002   0.08382    14.5500    15.2558    14.7641       nan    1.2609   0.1369   [0s; Eisenstein residual 1e-15; AL |b|Q vs |a|: 5e-12]
+     20011    16.7105   -0.12455    0.20720   -0.00117    0.11879    0.01624   -0.00001    0.02007    0.00231   -0.00002   0.08384    16.8018    17.5647    17.0332       nan    1.4217   0.1436   [1s; Eisenstein residual 4e-16; AL |b|Q vs |a|: 2e-12]
+     40009    19.0627   -0.07704    0.22352   -0.00128    0.12362    0.01723   -0.00001    0.02018    0.00236   -0.00002   0.08385    19.2065    20.0263    19.4551       nan    1.5830   0.1494   [2s; Eisenstein residual 1e-15; AL |b|Q vs |a|: 1e-11]
+    100003    22.4074   -0.01426    0.24511   -0.00143    0.13000    0.01855   -0.00001    0.02034    0.00242   -0.00002   0.08386    22.6206    23.5157    22.8920       nan    1.7963   0.1560   [5s; Eisenstein residual 3e-16; AL |b|Q vs |a|: 2e-11]
+    200003    25.1157    0.03325    0.26144   -0.00155    0.13483    0.01954   -0.00001    0.02045    0.00247   -0.00002   0.08386    25.3812    26.3334    25.6700       nan    1.9577   0.1604   [11s; Eisenstein residual 7e-16; AL |b|Q vs |a|: 4e-11]
+local slopes (y(p_2) - y(p_1))/log(p_2/p_1) against the closed forms (last pairs of primes):
+      C2 tail: predicted +0.06858; local slopes +0.06769 +0.06857 +0.06853 +0.06855
+      arcs AL: predicted +0.02356; local slopes +0.02359 +0.02355 +0.02356 +0.02356
+      corr AL: predicted -0.00017; local slopes -0.00016 -0.00017 -0.00016 -0.00016
+     cusp2 h1: predicted +0.00696; local slopes +0.00708 +0.00697 +0.00697 +0.00696
+    cusp2 arc: predicted +0.00144; local slopes +0.00144 +0.00144 +0.00144 +0.00144
+    cusp2 cor: predicted +0.00000; local slopes +0.00000 -0.00000 +0.00000 +0.00000
+     cusp4 h1: predicted +0.00017; local slopes +0.00022 +0.00017 +0.00017 +0.00017
+    cusp4 arc: predicted +0.00007; local slopes +0.00007 +0.00007 +0.00007 +0.00007
+    cusp4 cor: predicted -0.00000; local slopes -0.00000 -0.00000 -0.00000 -0.00000
+       narrow: predicted +0.00000; local slopes +0.00003 +0.00001 +0.00001 +0.00000
+   exact-lead: predicted +0.23285; local slopes +0.23212 +0.23282 +0.23280 +0.23282
+fits over p >= 1009: exact = a (log p)^2 + b log p + c with a = 0.1593 (1/(2 pi) = 0.1592), b = +0.2302, c = -0.870; exact - lead (log p)^2 = b log p + c with b = +0.23250 (B_8 = +0.23285), c = -0.881
+sandwich Lambda_1 <= exact <= Lambda_h at every p: True; at p = 101: exact = 3.6093, RS (window 2^21) = 3.6098, difference -0.0005
+the block below repeats the exact norms in the format of heegner_closed_form_B.txt (for plot_heegner_volume_scaling.py and chi_grouped_slopes.py)
+==== D = 8: A = 2, 1/(2 pi) = 0.15915, c_1 = 3.8135 ====
+   B_D = sum                           = +0.232854
+         p    C1 free    C2 tail  arcs wide  corr wide    narrow   Lambda_1   Lambda_h      exact   RS 2^21   ex-lead   /log p
+       101     3.8006   -0.45747    0.08161   -0.00029   0.08004     3.5112     3.8339     3.6093    3.6098    0.2194   0.0475   [0s]
+      1009     8.3191   -0.32765    0.13673   -0.00067   0.08348     8.1855     8.7023     8.3423    8.3029    0.7282   0.1053   [0s]
+      4001    11.8355   -0.23468    0.16928   -0.00090   0.08377    11.8051    12.4356    11.9964       nan    1.0473   0.1263   [0s]
+     10007    14.5107   -0.17146    0.19086   -0.00105   0.08382    14.5500    15.2558    14.7641       nan    1.2609   0.1369   [0s]
+     20011    16.7105   -0.12455    0.20720   -0.00117   0.08384    16.8018    17.5647    17.0332       nan    1.4217   0.1436   [0s]
+     40009    19.0627   -0.07704    0.22352   -0.00128   0.08385    19.2065    20.0263    19.4551       nan    1.5830   0.1494   [0s]
+    100003    22.4074   -0.01426    0.24511   -0.00143   0.08386    22.6206    23.5157    22.8920       nan    1.7963   0.1560   [0s]
+    200003    25.1157    0.03325    0.26144   -0.00155   0.08386    25.3812    26.3334    25.6700       nan    1.9577   0.1604   [0s]

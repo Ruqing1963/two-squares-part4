@@ -27,9 +27,11 @@ def slopes(rows):
 
 
 text = open(os.path.join(RES, 'heegner_closed_form_B.txt'), encoding='utf-8').read()
-out = ["Local slopes of ||G||^2 - (6/(pi(D+1)))(log p)^2 between primes with equal chi_{-D}(p); B_D for comparison.", ""]
+text8 = open(os.path.join(RES, 'heegner_D8.txt'), encoding='utf-8').read()          # D = 8: the block at the end
+text8 = text8[text8.index('==== D = 8'):] if '==== D = 8' in text8 else ''
+out = ["Local slopes of ||G||^2 - (6/(pi psi(D)))(log p)^2 between primes with equal chi_{-D}(p); B_D for comparison.", ""]
 summary = ["", "   D   last slope, chi = +1          last slope, chi = -1          B_D"]
-for block in re.split(r'=+ D = ', text)[1:]:
+for block in re.split(r'=+ D = (?=\d+:)', text + "\n" + text8)[1:]:
     D = int(block.split(':')[0])
     BD = float(re.search(r'B_D = sum\s+=\s+([+-]\d+\.\d+)', block).group(1))
     rows = []

@@ -31,13 +31,19 @@ DOI 10.5281/zenodo.23826860). The repository holds
    Proposition 3.4); Rankin–Selberg formula with C_D = w_D²√D/(8π²) (Theorem 3.5); the asymptotic
    ‖G‖² = (6/(π(D+1)))(log p)² + B_D log p + O(1) with B_D in closed form (Lemma 3.7, Theorem 3.8: the same five pieces
    as for D = 4, with the tail (6/(π(D+1))) Σ r_D(β)²(E₁(4πβ/D) + E₁(4πβ)) growing with D; B_3 = 0.8211, B_7 = 0.3289,
-   B_11 = 0.2941, B_19 = 0.3225, B_43 = 0.3637, B_67 = 0.3632, B_163 = 0.3216), and for all nine discriminants the lower
-   bound (6/(πψ(D)))(log p)² = (2/vol(Γ₀(D)\H))(log p)² (Theorem 3.6 and Section 3.7; for D = 8 only the lower bound).
+   B_11 = 0.2941, B_19 = 0.3225, B_43 = 0.3637, B_67 = 0.3632, B_163 = 0.3216), and for all nine discriminants the leading
+   term (6/(πψ(D)))(log p)² = (2/vol(Γ₀(D)\H))(log p)² (Theorem 3.6 and Section 3.7). For D = 8 (level 8p, not square-free)
+   Lemma 3.9 gives the expansions of Θ at all eight cusps of Γ₀(8p) by Poisson summation with Gauss sums on the dual
+   lattice, and the Eisenstein part in closed form, E = (−F₂ + χF₄ − 2χF₈ + 2χF_p − χF_{2p} + F_{4p} − 2F_{8p})/(12(p + χ)),
+   F_d = E₂(z) − dE₂(dz), χ = χ_{−8}(p); Theorem 3.10 then gives ‖G‖² = (1/(2π))(log p)² + B_8 log p + O(1) with
+   B_8 = 0.2329 in closed form, the cusps of denominators 2 and 4 contributing 0.0086 (`heegner_D8.py`: every piece
+   matched by the local slope of its component of the exact norm to 10⁻⁵).
 3. **Numerical verification (Section 4).** D = 3, 7, 11, 19, 43: 91 newform components, all obeying the support law,
    Rankin–Selberg ratios in [0.9936, 1.0048]; the exact scalloped norm for all seven odd D with coefficients k ≤ 3Dp
-   (`heegner_closed_form_B.py`): the local slopes of ‖G‖² − (6/(π(D+1)))(log p)² agree with B_D to 10⁻³ (D ≤ 11) or
-   10⁻² (D ≥ 19, shorter range of p), and with B_D fixed the fitted leading coefficients are 0.4774, 0.2387, 0.1591,
-   0.0956, 0.0433, 0.0277, 0.0115 against 0.4775, 0.2387, 0.1592, 0.0955, 0.0434, 0.0281, 0.0116. The O(1) term depends on
+   (`heegner_closed_form_B.py`) and for D = 8 over the eight cusps of Γ₀(8p) (`heegner_D8.py`): the local slopes of
+   ‖G‖² − (6/(πψ(D)))(log p)² agree with B_D to 10⁻³ (D ≤ 11) or 10⁻² (D ≥ 19, shorter range of p), and to 3·10⁻⁵ for
+   D = 8, and with B_D fixed the fitted leading coefficients are 0.4774, 0.2387, 0.1591, 0.1591, 0.0956, 0.0433, 0.0277,
+   0.0115 (D = 3, 7, 8, 11, 19, 43, 67, 163) against 0.4775, 0.2387, 0.1592, 0.1592, 0.0955, 0.0434, 0.0281, 0.0116. The O(1) term depends on
    χ_{−D}(p); grouping the primes by that sign (`chi_grouped_slopes.py`, Table 5) brings the local slopes within 0.0012 of
    B_D for D ≤ 43, while for D = 67 both groups give 0.358–0.359 against 0.3632 over a range too short to decide. (The earlier norm scans
    of `heegner_theta_unified.py` truncate at k ≤ 12p, which is not enough at the cusp of width Dp for D ≥ 43; their Λ values
@@ -66,6 +72,8 @@ python closed_form_B.py                          # Theorem 2.4: the closed form 
 python heegner_theta_unified.py 3 7 11           # Sections 3-4 for D = 3, 7, 11; ~3 min
 python heegner_theta_unified.py 19               # one D at a time for the large discriminants (memory); also 43, 67, 163
 python heegner_closed_form_B.py                  # Theorem 3.8: B_D in closed form against the exact norm, all seven D; ~10 min, ~1 GB
+python heegner_D8.py                             # Lemma 3.9, Theorem 3.10: D = 8 over the eight cusps of Gamma_0(8p); ~2 min
+python heegner_D8.py check 13                    # the consistency checks of Lemma 3.9 at p = 13; seconds
 python prime_discriminant_norm.py                # the first D = 3 exploration (notes/part4_explorations.tex)
 python eisenstein_circle_check.py 40             # Lemma 5.1; ~15 min (pure Python)
 python kloosterman_argument_audit.py             # Sections 1.3 and 5.3: the Kloosterman arguments, products modulo c; seconds
@@ -76,7 +84,7 @@ python plot_level77_duality.py                   # Figure 3
 ```
 
 Outputs: `results/subleading_log_anatomy.txt`, `results/closed_form_B.txt`, `results/heegner_theta_unified_{3_7_11,19,43,67,163}.txt`,
-`results/heegner_closed_form_B.txt`,
+`results/heegner_closed_form_B.txt`, `results/heegner_D8.txt`,
 `results/prime_discriminant_norm.txt`, `results/eisenstein_circle_check.txt`, `results/kloosterman_argument_audit.txt`,
 `results/chi_grouped_slopes.txt`; figures in `figures/`. The paper compiles with
 `pdflatex` (run twice) from `paper/`.
